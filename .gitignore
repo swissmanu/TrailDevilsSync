@@ -1,0 +1,22 @@
+build/
+ 
+# Xcode noise
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+
+# Xcode 4 noise
+*.xcworkspace
+xcuserdata
+ 
+
+.svn
+CVS
+ 
+# OSX noise
+.DS_Store
+*~.nib
+*.swp
