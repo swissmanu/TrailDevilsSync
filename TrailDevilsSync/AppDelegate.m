@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData/CoreData.h>
-
+#import "Trail.h"
 
 @implementation AppDelegate
 
@@ -38,17 +38,32 @@
                                                             managedObjectModel:nil
                                                                       delegate:self];
     
-    // Setup our object mappings    
     /*!
-     Mapping by entity. Here we are configuring a mapping by targetting a Core Data entity with a specific
-     name. This allows us to map back Twitter user objects directly onto NSManagedObject instances --
-     there is no backing model class!
+     Map to a target object class -- just as you would for a non-persistent class. The entity is resolved
+     for you using the Active Record pattern where the class name corresponds to the entity name within Core Data.
+     Twitter status objects will be mapped onto RKTStatus instances.
      */
-    RKManagedObjectMapping* userMapping = [RKManagedObjectMapping mappingForEntityWithName:@"RKTUser"];
-    userMapping.primaryKeyAttribute = @"userID";
-    [userMapping mapKeyPath:@"id" toAttribute:@"userID"];
-    [userMapping mapKeyPath:@"screen_name" toAttribute:@"screenName"];
-    [userMapping mapAttributes:@"name", nil];
+    RKManagedObjectMapping* statusMapping = [RKManagedObjectMapping mappingForClass:[Trail class]];
+    statusMapping.primaryKeyAttribute = @"trailId";
+    [statusMapping mapKeyPathsToAttributes:
+     @"Country", @"country"
+     ,@"CountryId", @"countryId"
+     ,@"CreatedDate", @"createdDate"
+     ,@"Desc", @"desc"
+     ,@"Favorits", @"favorits"
+     ,@"GmapX", @"gmapX"
+     ,@"GmapY", @"gmapY"
+     ,@"ImageUrl120", @"imageUrl120"
+     ,@"ImageUrl800", @"imageUrl800"
+     ,@"Info", @"info"
+     ,@"IsCommercial", @"isCommercial"
+     ,@"IsOpen", @"isOpen"
+     ,@"Journey", @"journey"
+     ,@"Name", @"name"
+     ,@"NextCity", @"nextCity"
+     ,@"State", @"state"
+     ,@"Url", @"url"
+     nil];
     
     
     return YES;
