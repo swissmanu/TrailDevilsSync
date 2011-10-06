@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import <RestKit/RestKit.h>
+#import <RestKit/CoreData/CoreData.h>
+
 
 @implementation AppDelegate
 
