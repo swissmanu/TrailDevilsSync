@@ -18,12 +18,39 @@
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    
+    RKObjectManager* rkManager = [RKObjectManager objectManagerWithBaseURL:@"http://sifsv-80018:8080/api"];
+    rkManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
+    
+    // Initialize object store
+    #ifdef RESTKIT_GENERATE_SEED_DB
+        NSString *seedDatabaseName = nil;
+        NSString *databaseName = RKDefaultSeedDatabaseFileName;
+    #else
+        NSString *seedDatabaseName = RKDefaultSeedDatabaseFileName;
+        NSString *databaseName = @"TrailDevilsSyncDatabase.sqlite";
+    #endif
+    
+    rkManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:databaseName
+                                                         usingSeedDatabaseName:seedDatabaseName
+                                                            managedObjectModel:nil
+                                                                      delegate:self];
+    
+    // Setup our object mappings    
+    /*!
+     Mapping by entity. Here we are configuring a mapping by targetting a Core Data entity with a specific
+     name. This allows us to map back Twitter user objects directly onto NSManagedObject instances --
+     there is no backing model class!
+     */
+    RKManagedObjectMapping* userMapping = [RKManagedObjectMapping mappingForEntityWithName:@"RKTUser"];
+    userMapping.primaryKeyAttribute = @"userID";
+    [userMapping mapKeyPath:@"id" toAttribute:@"userID"];
+    [userMapping mapKeyPath:@"screen_name" toAttribute:@"screenName"];
+    [userMapping mapAttributes:@"name", nil];
+    
+    
     return YES;
 }
 
