@@ -212,6 +212,8 @@
 		64873862143DBBE200838FC4 /* TrailDevilsSync */ = {
 			isa = PBXGroup;
 			children = (
+				8DA3F8CE143DD53C000F6FAB /* Controller */,
+				8DA3F8CD143DD533000F6FAB /* View */,
 				8DA3F89A143DD3AA000F6FAB /* Model */,
 				6487386B143DBBE200838FC4 /* AppDelegate.h */,
 				6487386C143DBBE200838FC4 /* AppDelegate.m */,
@@ -239,6 +241,20 @@
 				8DA3F8CB143DD4EC000F6FAB /* Trail.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		8DA3F8CD143DD533000F6FAB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8DA3F8CE143DD53C000F6FAB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
