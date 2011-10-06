@@ -24,8 +24,7 @@
 		64873869143DBBE200838FC4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64873868143DBBE200838FC4 /* main.m */; };
 		6487386D143DBBE200838FC4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6487386C143DBBE200838FC4 /* AppDelegate.m */; };
 		64873870143DBBE200838FC4 /* TrailDevilsSync.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6487386E143DBBE200838FC4 /* TrailDevilsSync.xcdatamodeld */; };
-		8DA3F899143DD3A3000F6FAB /* Trail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA3F898143DD3A3000F6FAB /* Trail.m */; };
-		8DA3F89D143DD40B000F6FAB /* Trail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA3F89C143DD40B000F6FAB /* Trail.m */; };
+		8DA3F8CC143DD4EC000F6FAB /* Trail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA3F8CB143DD4EC000F6FAB /* Trail.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,10 +131,8 @@
 		6487386B143DBBE200838FC4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6487386C143DBBE200838FC4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6487386F143DBBE200838FC4 /* TrailDevilsSync.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrailDevilsSync.xcdatamodel; sourceTree = "<group>"; };
-		8DA3F897143DD3A3000F6FAB /* Trail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trail.h; sourceTree = "<group>"; };
-		8DA3F898143DD3A3000F6FAB /* Trail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trail.m; sourceTree = "<group>"; };
-		8DA3F89B143DD40B000F6FAB /* Trail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trail.h; sourceTree = "<group>"; };
-		8DA3F89C143DD40B000F6FAB /* Trail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trail.m; sourceTree = "<group>"; };
+		8DA3F8CA143DD4EC000F6FAB /* Trail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trail.h; sourceTree = "<group>"; };
+		8DA3F8CB143DD4EC000F6FAB /* Trail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trail.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,12 +212,12 @@
 		64873862143DBBE200838FC4 /* TrailDevilsSync */ = {
 			isa = PBXGroup;
 			children = (
+				8DA3F8CE143DD53C000F6FAB /* Controller */,
+				8DA3F8CD143DD533000F6FAB /* View */,
 				8DA3F89A143DD3AA000F6FAB /* Model */,
 				6487386B143DBBE200838FC4 /* AppDelegate.h */,
 				6487386C143DBBE200838FC4 /* AppDelegate.m */,
 				6487386E143DBBE200838FC4 /* TrailDevilsSync.xcdatamodeld */,
-				8DA3F89B143DD40B000F6FAB /* Trail.h */,
-				8DA3F89C143DD40B000F6FAB /* Trail.m */,
 				64873863143DBBE200838FC4 /* Supporting Files */,
 			);
 			path = TrailDevilsSync;
@@ -240,10 +237,24 @@
 		8DA3F89A143DD3AA000F6FAB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8DA3F897143DD3A3000F6FAB /* Trail.h */,
-				8DA3F898143DD3A3000F6FAB /* Trail.m */,
+				8DA3F8CA143DD4EC000F6FAB /* Trail.h */,
+				8DA3F8CB143DD4EC000F6FAB /* Trail.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		8DA3F8CD143DD533000F6FAB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8DA3F8CE143DD53C000F6FAB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,8 +409,7 @@
 				64873869143DBBE200838FC4 /* main.m in Sources */,
 				6487386D143DBBE200838FC4 /* AppDelegate.m in Sources */,
 				64873870143DBBE200838FC4 /* TrailDevilsSync.xcdatamodeld in Sources */,
-				8DA3F899143DD3A3000F6FAB /* Trail.m in Sources */,
-				8DA3F89D143DD40B000F6FAB /* Trail.m in Sources */,
+				8DA3F8CC143DD4EC000F6FAB /* Trail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
