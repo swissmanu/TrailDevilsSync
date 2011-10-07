@@ -9,6 +9,7 @@
 #import "TDSAppDelegate.h"
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData/CoreData.h>
+#import "TDSTrail.h"
 
 @implementation TDSAppDelegate
 
@@ -21,6 +22,30 @@
     
     RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://sifsv-80018:8080/api"];
     objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TDSData.sqlite"];
+    
+    RKManagedObjectMapping* trailMapping = [RKManagedObjectMapping mappingForClass:[TDSTrail class]];
+    trailMapping.primaryKeyAttribute = @"trailId";
+    [trailMapping mapKeyPathsToAttributes:
+     @"Country",@"country"
+     ,@"CountryId",@"countryId"
+     ,@"CreatedDate",@"createdDate"
+     ,@"Desc",@"desc"
+     ,@"Favorits",@"favorits"
+     ,@"GmapX",@"gmapX"
+     ,@"GmapY",@"gmapY"
+     ,@"ImageUrl120",@"imageUrl120"
+     ,@"ImageUrl800",@"imageUrl800"
+     ,@"Info",@"info"
+     ,@"IsCommercial",@"isCommercial"
+     ,@"IsOpen",@"isOpen"
+     ,@"Journey",@"journey"
+     ,@"Name", @"name"
+     ,@"NextCity",@"nextCity"
+     ,@"State",@"state"
+     ,@"Url",@"url"
+     ,nil];
+    [objectManager.mappingProvider registerMapping:trailMapping withRootKeyPath:@"trail"];
+    
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
