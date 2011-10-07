@@ -163,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				64EC3464143EED4C0063BC4D /* Code */,
+				64EC34B3143EF1FE0063BC4D /* Modelling */,
 				64EC3465143EED4C0063BC4D /* Supporting Files */,
 				64EC34B2143EF1A60063BC4D /* Libraries */,
 				64EC345B143EED4C0063BC4D /* Frameworks */,
@@ -198,7 +199,6 @@
 			children = (
 				64EC346D143EED4D0063BC4D /* TDSAppDelegate.h */,
 				64EC346E143EED4D0063BC4D /* TDSAppDelegate.m */,
-				64EC3470143EED4D0063BC4D /* TrailDevilsSync.xcdatamodeld */,
 			);
 			name = Code;
 			path = TrailDevilsSync;
@@ -240,6 +240,14 @@
 				64EC3478143EF0C10063BC4D /* RestKit.xcodeproj */,
 			);
 			name = Libraries;
+			sourceTree = "<group>";
+		};
+		64EC34B3143EF1FE0063BC4D /* Modelling */ = {
+			isa = PBXGroup;
+			children = (
+				64EC3470143EED4D0063BC4D /* TrailDevilsSync.xcdatamodeld */,
+			);
+			name = Modelling;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -518,7 +526,8 @@
 				64EC3471143EED4D0063BC4D /* TrailDevilsSync.xcdatamodel */,
 			);
 			currentVersion = 64EC3471143EED4D0063BC4D /* TrailDevilsSync.xcdatamodel */;
-			path = TrailDevilsSync.xcdatamodeld;
+			name = TrailDevilsSync.xcdatamodeld;
+			path = TrailDevilsSync/TrailDevilsSync.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
