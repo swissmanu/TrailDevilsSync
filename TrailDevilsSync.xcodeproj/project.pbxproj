@@ -25,6 +25,7 @@
 		64EC34AF143EF12E0063BC4D /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC34AB143EF12E0063BC4D /* libxml2.dylib */; };
 		64EC34B0143EF12E0063BC4D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC34AC143EF12E0063BC4D /* MobileCoreServices.framework */; };
 		64EC34B1143EF12E0063BC4D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC34AD143EF12E0063BC4D /* SystemConfiguration.framework */; };
+		64EC34BC143EF3E10063BC4D /* TDSTrail.m in Sources */ = {isa = PBXBuildFile; fileRef = 64EC34BB143EF3E10063BC4D /* TDSTrail.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +133,8 @@
 		64EC34AB143EF12E0063BC4D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		64EC34AC143EF12E0063BC4D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		64EC34AD143EF12E0063BC4D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		64EC34BA143EF3E10063BC4D /* TDSTrail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrail.h; sourceTree = "<group>"; };
+		64EC34BB143EF3E10063BC4D /* TDSTrail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrail.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +200,9 @@
 		64EC3464143EED4C0063BC4D /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				64EC34B6143EF3860063BC4D /* Controllers */,
+				64EC34B5143EF37B0063BC4D /* Views */,
+				64EC34B4143EF3740063BC4D /* Models */,
 				64EC346D143EED4D0063BC4D /* TDSAppDelegate.h */,
 				64EC346E143EED4D0063BC4D /* TDSAppDelegate.m */,
 			);
@@ -248,6 +254,29 @@
 				64EC3470143EED4D0063BC4D /* TrailDevilsSync.xcdatamodeld */,
 			);
 			name = Modelling;
+			sourceTree = "<group>";
+		};
+		64EC34B4143EF3740063BC4D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				64EC34BA143EF3E10063BC4D /* TDSTrail.h */,
+				64EC34BB143EF3E10063BC4D /* TDSTrail.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		64EC34B5143EF37B0063BC4D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		64EC34B6143EF3860063BC4D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,6 +430,7 @@
 				64EC346B143EED4D0063BC4D /* main.m in Sources */,
 				64EC346F143EED4D0063BC4D /* TDSAppDelegate.m in Sources */,
 				64EC3472143EED4D0063BC4D /* TrailDevilsSync.xcdatamodeld in Sources */,
+				64EC34BC143EF3E10063BC4D /* TDSTrail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

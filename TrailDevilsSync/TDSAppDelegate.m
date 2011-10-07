@@ -19,7 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    
+    RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://sifsv-80018:8080/api"];
+    objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TDSData.sqlite"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
