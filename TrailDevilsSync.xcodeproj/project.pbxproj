@@ -1,0 +1,284 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		64EC345D143EED4C0063BC4D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC345C143EED4C0063BC4D /* UIKit.framework */; };
+		64EC345F143EED4C0063BC4D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC345E143EED4C0063BC4D /* Foundation.framework */; };
+		64EC3461143EED4C0063BC4D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC3460143EED4C0063BC4D /* CoreGraphics.framework */; };
+		64EC3463143EED4C0063BC4D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC3462143EED4C0063BC4D /* CoreData.framework */; };
+		64EC3469143EED4D0063BC4D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64EC3467143EED4C0063BC4D /* InfoPlist.strings */; };
+		64EC346B143EED4D0063BC4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64EC346A143EED4D0063BC4D /* main.m */; };
+		64EC346F143EED4D0063BC4D /* TDSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64EC346E143EED4D0063BC4D /* TDSAppDelegate.m */; };
+		64EC3472143EED4D0063BC4D /* TrailDevilsSync.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 64EC3470143EED4D0063BC4D /* TrailDevilsSync.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		64EC3458143EED4C0063BC4D /* TrailDevilsSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrailDevilsSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		64EC345C143EED4C0063BC4D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		64EC345E143EED4C0063BC4D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		64EC3460143EED4C0063BC4D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		64EC3462143EED4C0063BC4D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		64EC3466143EED4C0063BC4D /* TrailDevilsSync-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TrailDevilsSync-Info.plist"; sourceTree = "<group>"; };
+		64EC3468143EED4C0063BC4D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		64EC346A143EED4D0063BC4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		64EC346C143EED4D0063BC4D /* TrailDevilsSync-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrailDevilsSync-Prefix.pch"; sourceTree = "<group>"; };
+		64EC346D143EED4D0063BC4D /* TDSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDSAppDelegate.h; sourceTree = "<group>"; };
+		64EC346E143EED4D0063BC4D /* TDSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDSAppDelegate.m; sourceTree = "<group>"; };
+		64EC3471143EED4D0063BC4D /* TrailDevilsSync.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrailDevilsSync.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		64EC3455143EED4C0063BC4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64EC345D143EED4C0063BC4D /* UIKit.framework in Frameworks */,
+				64EC345F143EED4C0063BC4D /* Foundation.framework in Frameworks */,
+				64EC3461143EED4C0063BC4D /* CoreGraphics.framework in Frameworks */,
+				64EC3463143EED4C0063BC4D /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		64EC344D143EED4C0063BC4D = {
+			isa = PBXGroup;
+			children = (
+				64EC3464143EED4C0063BC4D /* TrailDevilsSync */,
+				64EC345B143EED4C0063BC4D /* Frameworks */,
+				64EC3459143EED4C0063BC4D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		64EC3459143EED4C0063BC4D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				64EC3458143EED4C0063BC4D /* TrailDevilsSync.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		64EC345B143EED4C0063BC4D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				64EC345C143EED4C0063BC4D /* UIKit.framework */,
+				64EC345E143EED4C0063BC4D /* Foundation.framework */,
+				64EC3460143EED4C0063BC4D /* CoreGraphics.framework */,
+				64EC3462143EED4C0063BC4D /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		64EC3464143EED4C0063BC4D /* TrailDevilsSync */ = {
+			isa = PBXGroup;
+			children = (
+				64EC346D143EED4D0063BC4D /* TDSAppDelegate.h */,
+				64EC346E143EED4D0063BC4D /* TDSAppDelegate.m */,
+				64EC3470143EED4D0063BC4D /* TrailDevilsSync.xcdatamodeld */,
+				64EC3465143EED4C0063BC4D /* Supporting Files */,
+			);
+			path = TrailDevilsSync;
+			sourceTree = "<group>";
+		};
+		64EC3465143EED4C0063BC4D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				64EC3466143EED4C0063BC4D /* TrailDevilsSync-Info.plist */,
+				64EC3467143EED4C0063BC4D /* InfoPlist.strings */,
+				64EC346A143EED4D0063BC4D /* main.m */,
+				64EC346C143EED4D0063BC4D /* TrailDevilsSync-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		64EC3457143EED4C0063BC4D /* TrailDevilsSync */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64EC3475143EED4D0063BC4D /* Build configuration list for PBXNativeTarget "TrailDevilsSync" */;
+			buildPhases = (
+				64EC3454143EED4C0063BC4D /* Sources */,
+				64EC3455143EED4C0063BC4D /* Frameworks */,
+				64EC3456143EED4C0063BC4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TrailDevilsSync;
+			productName = TrailDevilsSync;
+			productReference = 64EC3458143EED4C0063BC4D /* TrailDevilsSync.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		64EC344F143EED4C0063BC4D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 64EC3452143EED4C0063BC4D /* Build configuration list for PBXProject "TrailDevilsSync" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 64EC344D143EED4C0063BC4D;
+			productRefGroup = 64EC3459143EED4C0063BC4D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				64EC3457143EED4C0063BC4D /* TrailDevilsSync */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		64EC3456143EED4C0063BC4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64EC3469143EED4D0063BC4D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		64EC3454143EED4C0063BC4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64EC346B143EED4D0063BC4D /* main.m in Sources */,
+				64EC346F143EED4D0063BC4D /* TDSAppDelegate.m in Sources */,
+				64EC3472143EED4D0063BC4D /* TrailDevilsSync.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		64EC3467143EED4C0063BC4D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				64EC3468143EED4C0063BC4D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		64EC3473143EED4D0063BC4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		64EC3474143EED4D0063BC4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		64EC3476143EED4D0063BC4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TrailDevilsSync/TrailDevilsSync-Prefix.pch";
+				INFOPLIST_FILE = "TrailDevilsSync/TrailDevilsSync-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		64EC3477143EED4D0063BC4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TrailDevilsSync/TrailDevilsSync-Prefix.pch";
+				INFOPLIST_FILE = "TrailDevilsSync/TrailDevilsSync-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		64EC3452143EED4C0063BC4D /* Build configuration list for PBXProject "TrailDevilsSync" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64EC3473143EED4D0063BC4D /* Debug */,
+				64EC3474143EED4D0063BC4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		64EC3475143EED4D0063BC4D /* Build configuration list for PBXNativeTarget "TrailDevilsSync" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64EC3476143EED4D0063BC4D /* Debug */,
+				64EC3477143EED4D0063BC4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		64EC3470143EED4D0063BC4D /* TrailDevilsSync.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				64EC3471143EED4D0063BC4D /* TrailDevilsSync.xcdatamodel */,
+			);
+			currentVersion = 64EC3471143EED4D0063BC4D /* TrailDevilsSync.xcdatamodel */;
+			path = TrailDevilsSync.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 64EC344F143EED4C0063BC4D /* Project object */;
+}
