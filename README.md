@@ -1,3 +1,4 @@
-OSync
-=====
-Fetch your webservice output and convert it into managed objects with no additional effort.
+TrailDevilsSync
+===============
+A playground for syncing CoreData with a RESTful webservice.
+Uses the comprehensive RestKit.
