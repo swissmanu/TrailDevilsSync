@@ -7,6 +7,8 @@
 //
 
 #import "TDSAppDelegate.h"
+#import <RestKit/RestKit.h>
+#import <RestKit/CoreData/CoreData.h>
 
 @implementation TDSAppDelegate
 
@@ -15,8 +17,10 @@
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
