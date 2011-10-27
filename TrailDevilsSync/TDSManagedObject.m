@@ -13,5 +13,6 @@
 
 @dynamic lastModifiedDate;
 @dynamic createdDate;
+@dynamic isNew;
 
 @end

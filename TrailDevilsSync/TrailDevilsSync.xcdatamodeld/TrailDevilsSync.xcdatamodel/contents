@@ -2,6 +2,7 @@
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="TDSManagedObject" representedClassName="TDSManagedObject" syncable="YES">
         <attribute name="createdDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="isNew" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <attribute name="lastModifiedDate" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <entity name="TDSTrail" representedClassName="TDSTrail" parentEntity="TDSManagedObject" syncable="YES">
@@ -25,6 +26,6 @@
     </entity>
     <elements>
         <element name="TDSTrail" positionX="160" positionY="192" width="128" height="315"/>
-        <element name="TDSManagedObject" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="TDSManagedObject" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>

@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6426D73B145960B0007BD692 /* TDSSyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6426D73A145960B0007BD692 /* TDSSyncManager.m */; };
-		6426D73E1459623A007BD692 /* TDSManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6426D73D1459623A007BD692 /* TDSManagedObject.m */; };
 		6426D7411459623A007BD692 /* TDSTrail.m in Sources */ = {isa = PBXBuildFile; fileRef = 6426D7401459623A007BD692 /* TDSTrail.m */; };
+		6426D7441459661A007BD692 /* TDSManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6426D7431459661A007BD692 /* TDSManagedObject.m */; };
 		64EC345D143EED4C0063BC4D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC345C143EED4C0063BC4D /* UIKit.framework */; };
 		64EC345F143EED4C0063BC4D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC345E143EED4C0063BC4D /* Foundation.framework */; };
 		64EC3461143EED4C0063BC4D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC3460143EED4C0063BC4D /* CoreGraphics.framework */; };
@@ -120,10 +120,10 @@
 /* Begin PBXFileReference section */
 		6426D739145960B0007BD692 /* TDSSyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSSyncManager.h; sourceTree = "<group>"; };
 		6426D73A145960B0007BD692 /* TDSSyncManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSSyncManager.m; sourceTree = "<group>"; };
-		6426D73C1459623A007BD692 /* TDSManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSManagedObject.h; sourceTree = "<group>"; };
-		6426D73D1459623A007BD692 /* TDSManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSManagedObject.m; sourceTree = "<group>"; };
 		6426D73F1459623A007BD692 /* TDSTrail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrail.h; sourceTree = "<group>"; };
 		6426D7401459623A007BD692 /* TDSTrail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrail.m; sourceTree = "<group>"; };
+		6426D7421459661A007BD692 /* TDSManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSManagedObject.h; sourceTree = "<group>"; };
+		6426D7431459661A007BD692 /* TDSManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSManagedObject.m; sourceTree = "<group>"; };
 		64EC3458143EED4C0063BC4D /* TrailDevilsSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrailDevilsSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64EC345C143EED4C0063BC4D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		64EC345E143EED4C0063BC4D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -267,10 +267,10 @@
 		64EC34B4143EF3740063BC4D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6426D7421459661A007BD692 /* TDSManagedObject.h */,
+				6426D7431459661A007BD692 /* TDSManagedObject.m */,
 				6426D73F1459623A007BD692 /* TDSTrail.h */,
 				6426D7401459623A007BD692 /* TDSTrail.m */,
-				6426D73C1459623A007BD692 /* TDSManagedObject.h */,
-				6426D73D1459623A007BD692 /* TDSManagedObject.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -441,8 +441,8 @@
 				64EC346F143EED4D0063BC4D /* TDSAppDelegate.m in Sources */,
 				64EC3472143EED4D0063BC4D /* TrailDevilsSync.xcdatamodeld in Sources */,
 				6426D73B145960B0007BD692 /* TDSSyncManager.m in Sources */,
-				6426D73E1459623A007BD692 /* TDSManagedObject.m in Sources */,
 				6426D7411459623A007BD692 /* TDSTrail.m in Sources */,
+				6426D7441459661A007BD692 /* TDSManagedObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

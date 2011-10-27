@@ -15,4 +15,10 @@
 @property (nonatomic, retain) NSDate * lastModifiedDate;
 @property (nonatomic, retain) NSDate * createdDate;
 
+/**
+ * Indicates that this TDSManagedObject is not known on the remote system.
+ * Means no primary key is available already.
+ */
+@property (nonatomic, retain) NSNumber * isNew;
+
 @end
