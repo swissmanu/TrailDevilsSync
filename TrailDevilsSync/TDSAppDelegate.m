@@ -23,6 +23,8 @@
     RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://sifsv-80018:8080/api"];
     objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TDSData.sqlite"];
     
+    // Default refresh rate
+    
     RKManagedObjectMapping* trailMapping = [RKManagedObjectMapping mappingForClass:[TDSTrail class]];
     trailMapping.primaryKeyAttribute = @"trailId";
     [trailMapping mapKeyPathsToAttributes:
@@ -45,6 +47,9 @@
      ,@"Url",@"url"
      ,nil];
     [objectManager.mappingProvider registerMapping:trailMapping withRootKeyPath:@"trail"];
+    
+    
+    // Setup router
     
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
