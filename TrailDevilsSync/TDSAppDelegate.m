@@ -7,6 +7,11 @@
 //
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData/CoreData.h>
+#import <RestKit/Three20/Three20.h>
+#import <RestKit/Support/JSON/JSONKit/RKJSONParserJSONKit.h>
+#import <RestKit/Support/JSON/SBJSON/RKJSONParserSBJSON.h>
+#import <RestKit/Support/JSON/YAJL/RKJSONParserYAJL.h>
+
 #import <Three20/Three20.h>
 #import <Three20/Three20+Additions.h>
 
@@ -23,7 +28,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://sifsv-80018:8080/api"];
-    //[RKObjectLoader setDefaultRefreshRate:1];
+    [RKObjectLoaderTTModel setDefaultRefreshRate:1];
+    
     objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TDSData.sqlite"];
     //objectManager.objectStore.managedObjectCache = ...
     
@@ -57,8 +63,14 @@
                       toResourcePath:@"/trails"
                            forMethod:RKRequestMethodGET];
     
-    NSArray* trails = [TDSTrail requestAll];
+    RKLogConfigureByName("RestKit", RKLogLevelDebug);
+    RKLogConfigureByName("RestKit/Network", RKLogLevelDebug);
+    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelDebug);
+    RKLogConfigureByName("RestKit/Network/Queue", RKLogLevelDebug);
+    RKLogSetAppLoggingLevel(RKLogLevelDebug);
     
+    NSArray* trails = [TDSTrail findAll];
+    NSLog(@"%i", [trails count]);
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.

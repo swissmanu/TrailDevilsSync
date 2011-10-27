@@ -10,4 +10,8 @@
 
 @implementation TDSManagedObjectCache
 
+-(NSArray *)fetchRequestsForResourcePath:(NSString *)resourcePath {
+    return [NSArray array];
+}
+
 @end
