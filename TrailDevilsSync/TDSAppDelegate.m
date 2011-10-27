@@ -5,10 +5,12 @@
 //  Created by Manuel Alabor on 07.10.11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
-
-#import "TDSAppDelegate.h"
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData/CoreData.h>
+#import <Three20/Three20.h>
+#import <Three20/Three20+Additions.h>
+
+#import "TDSAppDelegate.h"
 #import "TDSTrail.h"
 
 @implementation TDSAppDelegate
@@ -21,7 +23,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://sifsv-80018:8080/api"];
+    //[RKObjectLoader setDefaultRefreshRate:1];
     objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TDSData.sqlite"];
+    //objectManager.objectStore.managedObjectCache = ...
     
     // Default refresh rate
     
@@ -49,7 +53,11 @@
     [objectManager.mappingProvider registerMapping:trailMapping withRootKeyPath:@"trail"];
     
     
-    // Setup router
+    [objectManager.router routeClass:[TDSTrail class]
+                      toResourcePath:@"/trails"
+                           forMethod:RKRequestMethodGET];
+    
+    NSArray* trails = [TDSTrail requestAll];
     
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

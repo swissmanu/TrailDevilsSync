@@ -427,14 +427,7 @@
 		64EC345B143EED4C0063BC4D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3201088596B4756681693700 /* Three20UICommon.xcodeproj */,
-				320D7DCCE32703ACAB9A45E0 /* Three20.xcodeproj */,
-				320A737074758E53BA54BE90 /* Three20UINavigator.xcodeproj */,
-				320A2827FEC940B25BC42C60 /* Three20Core.xcodeproj */,
-				320F2C48872C2E2C4DF86200 /* Three20UI.xcodeproj */,
 				320AF8492C47A4D819F7C450 /* QuartzCore.framework */,
-				320A5A189C235877202780D0 /* Three20Network.xcodeproj */,
-				320CC833B8AF0ACFD35E6220 /* Three20Style.xcodeproj */,
 				64EC34AA143EF12E0063BC4D /* CFNetwork.framework */,
 				64EC34AB143EF12E0063BC4D /* libxml2.dylib */,
 				64EC34AC143EF12E0063BC4D /* MobileCoreServices.framework */,
@@ -496,6 +489,13 @@
 		64EC34B2143EF1A60063BC4D /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				3201088596B4756681693700 /* Three20UICommon.xcodeproj */,
+				320D7DCCE32703ACAB9A45E0 /* Three20.xcodeproj */,
+				320A737074758E53BA54BE90 /* Three20UINavigator.xcodeproj */,
+				320A2827FEC940B25BC42C60 /* Three20Core.xcodeproj */,
+				320F2C48872C2E2C4DF86200 /* Three20UI.xcodeproj */,
+				320A5A189C235877202780D0 /* Three20Network.xcodeproj */,
+				320CC833B8AF0ACFD35E6220 /* Three20Style.xcodeproj */,
 				64EC3478143EF0C10063BC4D /* RestKit.xcodeproj */,
 			);
 			name = Libraries;
@@ -944,7 +944,11 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TrailDevilsSync/TrailDevilsSync-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"${SOURCE_ROOT}/RestKit/Build\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)/../three20\"",
+					"\"$(BUILT_PRODUCTS_DIR)/../../three20\"",
+					"\"${SOURCE_ROOT}/RestKit/Build\"",
+				);
 				INFOPLIST_FILE = "TrailDevilsSync/TrailDevilsSync-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -957,7 +961,11 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TrailDevilsSync/TrailDevilsSync-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"${SOURCE_ROOT}/RestKit/Build\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)/../three20\"",
+					"\"$(BUILT_PRODUCTS_DIR)/../../three20\"",
+					"\"${SOURCE_ROOT}/RestKit/Build\"",
+				);
 				INFOPLIST_FILE = "TrailDevilsSync/TrailDevilsSync-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
