@@ -2,19 +2,19 @@
 //  TDSTrail.h
 //  TrailDevilsSync
 //
-//  Created by Manuel Alabor on 07.10.11.
+//  Created by Manuel Alabor on 27.10.11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "TDSManagedObject.h"
 
 
-@interface TDSTrail : NSManagedObject
+@interface TDSTrail : TDSManagedObject
 
 @property (nonatomic, retain) NSString * country;
 @property (nonatomic, retain) NSNumber * countryId;
-@property (nonatomic, retain) NSDate * createdDate;
 @property (nonatomic, retain) NSString * desc;
 @property (nonatomic, retain) NSNumber * favorits;
 @property (nonatomic, retain) NSNumber * gmapX;
