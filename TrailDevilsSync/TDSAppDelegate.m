@@ -27,7 +27,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://sifsv-80018:8080/api"];
+    RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://152.96.80.18:8080/api"];
     [RKObjectLoaderTTModel setDefaultRefreshRate:1];
     
     objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TDSData.sqlite"];
