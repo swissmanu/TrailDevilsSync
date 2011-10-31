@@ -18,12 +18,17 @@
 #import "TDSAppDelegate.h"
 #import "TDSTrail.h"
 
+#import "TrackTableViewController.h"
+
 @implementation TDSAppDelegate
 
 @synthesize window = _window;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
+
+@synthesize navigationController=_navigationController;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -74,6 +79,13 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    
+    TrackTableViewController *trackView = [[TrackTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:trackView];
+
+    [self.window addSubview:[self.navigationController view]];    
+        
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
