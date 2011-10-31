@@ -15,12 +15,14 @@
 
 -(void)createModel {
     RKObjectTTTableViewDataSource* dataSource = [RKObjectTTTableViewDataSource dataSource];
+
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[TTTableTextItem class]];
     [mapping mapKeyPath:@"name" toAttribute:@"text"];
-    [mapping mapKeyPath:@"url" toAttribute:@"URL"];
     [dataSource mapObjectClass:[TDSTrail class] toTableItemWithMapping:mapping];
     
-    RKObjectLoader* objectLoader = [[RKObjectManager sharedManager] objectLoaderWithResourcePath:@"/trails" delegate:nil];
+    RKObjectLoader* objectLoader = [[RKObjectManager sharedManager] objectLoaderWithResourcePath:@"/trails" delegate:nil ];
+    objectLoader.objectMapping = [[RKObjectManager sharedManager].mappingProvider objectMappingForClass:[TDSTrail class]];
+    
     dataSource.model = [RKObjectLoaderTTModel modelWithObjectLoader:objectLoader];
     self.dataSource = dataSource;
 }

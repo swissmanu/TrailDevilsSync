@@ -6,26 +6,26 @@
         <attribute name="lastModifiedDate" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <entity name="TDSTrail" representedClassName="TDSTrail" parentEntity="TDSManagedObject" syncable="YES">
-        <attribute name="country" attributeType="String" syncable="YES"/>
-        <attribute name="countryId" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="desc" attributeType="String" syncable="YES"/>
-        <attribute name="favorits" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="gmapX" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="gmapY" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="imageUrl120" attributeType="String" syncable="YES"/>
-        <attribute name="imageUrl800" attributeType="String" syncable="YES"/>
-        <attribute name="info" attributeType="String" syncable="YES"/>
-        <attribute name="isCommercial" attributeType="Boolean" syncable="YES"/>
-        <attribute name="isOpen" attributeType="Boolean" syncable="YES"/>
-        <attribute name="journey" attributeType="String" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="countryId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="favorits" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="gmapX" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="gmapY" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="imageUrl120" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageUrl800" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isCommercial" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isOpen" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="journey" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="nextCity" attributeType="String" syncable="YES"/>
-        <attribute name="state" attributeType="String" syncable="YES"/>
+        <attribute name="nextCity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="trailId" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
-        <attribute name="url" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TDSTrail" positionX="160" positionY="192" width="128" height="315"/>
         <element name="TDSManagedObject" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="TDSTrail" positionX="160" positionY="192" width="128" height="300"/>
     </elements>
 </model>
