@@ -5,6 +5,8 @@
 //  Created by Manuel Alabor on 07.10.11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
+
+// RestKit:
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData/CoreData.h>
 #import <RestKit/Three20/Three20.h>
@@ -12,11 +14,14 @@
 #import <RestKit/Support/JSON/SBJSON/RKJSONParserSBJSON.h>
 #import <RestKit/Support/JSON/YAJL/RKJSONParserYAJL.h>
 
+// Three20:
 #import <Three20/Three20.h>
 #import <Three20/Three20+Additions.h>
 
+// TDS:
 #import "TDSAppDelegate.h"
 #import "TDSTrail.h"
+#import "TDSTrailsViewController.h"
 
 @implementation TDSAppDelegate
 
@@ -36,7 +41,6 @@
     // Default refresh rate
     
     RKManagedObjectMapping* trailMapping = [RKManagedObjectMapping mappingForClass:[TDSTrail class]];
-    trailMapping.primaryKeyAttribute = @"trailId";
     [trailMapping mapKeyPathsToAttributes:
      @"Country",@"country"
      ,@"CountryId",@"countryId"
@@ -56,6 +60,7 @@
      ,@"State",@"state"
      ,@"Url",@"url"
      ,nil];
+    trailMapping.primaryKeyAttribute = @"trailId";
     [objectManager.mappingProvider registerMapping:trailMapping withRootKeyPath:@"trail"];
     
     
@@ -72,10 +77,15 @@
     NSArray* trails = [TDSTrail findAll];
     NSLog(@"%i", [trails count]);
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    
+    
+    // Setup & open GUI:
+    TTURLMap* urlMap = [[TTNavigator navigator] URLMap];
+    [urlMap from:@"tds://trails" toViewController:[TDSTrailsViewController class]];
+    
+    TTOpenURL(@"tds://trails");
+    [[TTNavigator navigator].window makeKeyAndVisible];
+    
     return YES;
 }
 
