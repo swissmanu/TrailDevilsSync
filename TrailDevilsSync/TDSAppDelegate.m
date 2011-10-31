@@ -9,19 +9,11 @@
 // RestKit:
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData/CoreData.h>
-#import <RestKit/Three20/Three20.h>
 #import <RestKit/Support/JSON/JSONKit/RKJSONParserJSONKit.h>
-#import <RestKit/Support/JSON/SBJSON/RKJSONParserSBJSON.h>
-#import <RestKit/Support/JSON/YAJL/RKJSONParserYAJL.h>
-
-// Three20:
-#import <Three20/Three20.h>
-#import <Three20/Three20+Additions.h>
 
 // TDS:
 #import "TDSAppDelegate.h"
 #import "TDSTrail.h"
-#import "TDSTrailsViewController.h"
 
 @implementation TDSAppDelegate
 
@@ -37,9 +29,6 @@
     objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TDSData.sqlite"];
     
     [objectManager.client setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    
-    // Default refresh rate
-    //[RKObjectLoaderTTModel setDefaultRefreshRate:3600000000000];
     
     
     objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
@@ -87,13 +76,6 @@
     NSArray* trails = [TDSTrail allObjects];
     NSLog(@"%i", [trails count]);
 #endif
-    
-    // Setup & open GUI:
-    TTURLMap* urlMap = [[TTNavigator navigator] URLMap];
-    [urlMap from:@"tds://trails" toViewController:[TDSTrailsViewController class]];
-    
-    TTOpenURL(@"tds://trails");
-    [[TTNavigator navigator].window makeKeyAndVisible];
     
     return YES;
 }
