@@ -39,7 +39,7 @@
     [objectManager.client setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
     // Default refresh rate
-    [RKObjectLoaderTTModel setDefaultRefreshRate:1];
+    //[RKObjectLoaderTTModel setDefaultRefreshRate:3600000000000];
     
     
     objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
@@ -66,6 +66,7 @@
      ,@"NextCity",@"nextCity"
      ,@"State",@"state"
      ,@"Url",@"url"
+     ,@"TrailId",@"trailId"
      ,nil];
     //[objectManager.mappingProvider registerMapping:trailMapping withRootKeyPath:@"trail"];
     [objectManager.mappingProvider setMapping:trailMapping forKeyPath:@"trail"];
@@ -74,6 +75,8 @@
     [objectManager.router routeClass:[TDSTrail class]
                       toResourcePath:@"/trails"
                            forMethod:RKRequestMethodGET];
+    
+    
     
 #ifdef DEBUG
     RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelDebug);
@@ -84,8 +87,6 @@
     NSArray* trails = [TDSTrail allObjects];
     NSLog(@"%i", [trails count]);
 #endif
-    
-    
     
     // Setup & open GUI:
     TTURLMap* urlMap = [[TTNavigator navigator] URLMap];
