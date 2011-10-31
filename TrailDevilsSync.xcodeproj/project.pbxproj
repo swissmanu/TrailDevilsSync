@@ -38,6 +38,7 @@
 		64EC34B0143EF12E0063BC4D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC34AC143EF12E0063BC4D /* MobileCoreServices.framework */; };
 		64EC34B1143EF12E0063BC4D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC34AD143EF12E0063BC4D /* SystemConfiguration.framework */; };
 		64F82F8F1459BE5C0048B7CA /* libRestKitThree20.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC349F143EF0C20063BC4D /* libRestKitThree20.a */; };
+		8D9D8FE7145DCF940074921B /* TrackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9D8FE6145DCF940074921B /* TrackTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -321,6 +322,8 @@
 		64EC34AB143EF12E0063BC4D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		64EC34AC143EF12E0063BC4D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		64EC34AD143EF12E0063BC4D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8D9D8FE5145DCF940074921B /* TrackTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackTableViewController.h; sourceTree = "<group>"; };
+		8D9D8FE6145DCF940074921B /* TrackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -539,6 +542,8 @@
 		64EC34B5143EF37B0063BC4D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8D9D8FE5145DCF940074921B /* TrackTableViewController.h */,
+				8D9D8FE6145DCF940074921B /* TrackTableViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -840,6 +845,7 @@
 				6426D7411459623A007BD692 /* TDSTrail.m in Sources */,
 				6426D7441459661A007BD692 /* TDSManagedObject.m in Sources */,
 				6426D75D14597149007BD692 /* TDSManagedObjectCache.m in Sources */,
+				8D9D8FE7145DCF940074921B /* TrackTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

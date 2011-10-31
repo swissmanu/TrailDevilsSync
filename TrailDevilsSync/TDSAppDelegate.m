@@ -33,15 +33,21 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://152.96.80.18:8080/api"];
-    [RKObjectLoaderTTModel setDefaultRefreshRate:1];
     
     objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TDSData.sqlite"];
-    //objectManager.objectStore.managedObjectCache = ...
+    
+    [objectManager.client setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
     // Default refresh rate
+    [RKObjectLoaderTTModel setDefaultRefreshRate:1];
+    
+    
+    objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
+    
     
     RKManagedObjectMapping* trailMapping = [RKManagedObjectMapping mappingForClass:[TDSTrail class]];
     trailMapping.primaryKeyAttribute = @"trailId";
+    trailMapping.setDefaultValueForMissingAttributes = YES;
     [trailMapping mapKeyPathsToAttributes:
      @"Country",@"country"
      ,@"CountryId",@"countryId"
@@ -61,21 +67,24 @@
      ,@"State",@"state"
      ,@"Url",@"url"
      ,nil];
-    [objectManager.mappingProvider registerMapping:trailMapping withRootKeyPath:@"trail"];
+    //[objectManager.mappingProvider registerMapping:trailMapping withRootKeyPath:@"trail"];
+    [objectManager.mappingProvider setMapping:trailMapping forKeyPath:@"trail"];
     
     
     [objectManager.router routeClass:[TDSTrail class]
                       toResourcePath:@"/trails"
                            forMethod:RKRequestMethodGET];
     
-    RKLogConfigureByName("RestKit", RKLogLevelDebug);
-    RKLogConfigureByName("RestKit/Network", RKLogLevelDebug);
+#ifdef DEBUG
     RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelDebug);
-    RKLogConfigureByName("RestKit/Network/Queue", RKLogLevelDebug);
+    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
     RKLogSetAppLoggingLevel(RKLogLevelDebug);
     
-    NSArray* trails = [TDSTrail findAll];
+    
+    NSArray* trails = [TDSTrail allObjects];
     NSLog(@"%i", [trails count]);
+#endif
+    
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
@@ -83,6 +92,7 @@
     
     TrackTableViewController *trackView = [[TrackTableViewController alloc] initWithStyle:UITableViewStylePlain];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:trackView];
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.0 green:0.9 blue:0.3 alpha:1.0];
 
     [self.window addSubview:[self.navigationController view]];    
         
