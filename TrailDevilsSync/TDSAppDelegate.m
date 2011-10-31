@@ -14,6 +14,7 @@
 // TDS:
 #import "TDSAppDelegate.h"
 #import "TDSTrail.h"
+#import "TDSTrailTableViewController.h"
 
 @implementation TDSAppDelegate
 
@@ -21,6 +22,7 @@
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
+@synthesize navigationController = __navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -76,6 +78,18 @@
     NSArray* trails = [TDSTrail allObjects];
     NSLog(@"%i", [trails count]);
 #endif
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
+    TDSTrailTableViewController *trailsView = [[TDSTrailTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:trailsView];
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.0 green:0.7 blue:0.3 alpha:1.0];
+    
+    [self.window addSubview:[self.navigationController view]];
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     
     return YES;
 }

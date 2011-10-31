@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+//RestKit
+#import <RestKit/RestKit.h>
+#import <RestKit/CoreData/CoreData.h>
+
 
 @interface TDSManagedObject : NSManagedObject
 
