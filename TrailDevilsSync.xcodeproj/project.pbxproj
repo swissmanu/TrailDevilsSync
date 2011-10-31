@@ -19,6 +19,7 @@
 		6426D7411459623A007BD692 /* TDSTrail.m in Sources */ = {isa = PBXBuildFile; fileRef = 6426D7401459623A007BD692 /* TDSTrail.m */; };
 		6426D7441459661A007BD692 /* TDSManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6426D7431459661A007BD692 /* TDSManagedObject.m */; };
 		6426D75D14597149007BD692 /* TDSManagedObjectCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6426D75C14597149007BD692 /* TDSManagedObjectCache.m */; };
+		64B82C92145E7B83008E3CAA /* TDSTrailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B82C90145E7B83008E3CAA /* TDSTrailsViewController.m */; };
 		64EC345D143EED4C0063BC4D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC345C143EED4C0063BC4D /* UIKit.framework */; };
 		64EC345F143EED4C0063BC4D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC345E143EED4C0063BC4D /* Foundation.framework */; };
 		64EC3461143EED4C0063BC4D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC3460143EED4C0063BC4D /* CoreGraphics.framework */; };
@@ -305,6 +306,8 @@
 		6426D7431459661A007BD692 /* TDSManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSManagedObject.m; sourceTree = "<group>"; };
 		6426D75B14597149007BD692 /* TDSManagedObjectCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSManagedObjectCache.h; sourceTree = "<group>"; };
 		6426D75C14597149007BD692 /* TDSManagedObjectCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSManagedObjectCache.m; sourceTree = "<group>"; };
+		64B82C8F145E7B83008E3CAA /* TDSTrailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrailsViewController.h; sourceTree = "<group>"; };
+		64B82C90145E7B83008E3CAA /* TDSTrailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrailsViewController.m; sourceTree = "<group>"; };
 		64EC3458143EED4C0063BC4D /* TrailDevilsSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrailDevilsSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64EC345C143EED4C0063BC4D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		64EC345E143EED4C0063BC4D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -551,6 +554,8 @@
 		64EC34B6143EF3860063BC4D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				64B82C8F145E7B83008E3CAA /* TDSTrailsViewController.h */,
+				64B82C90145E7B83008E3CAA /* TDSTrailsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -845,7 +850,7 @@
 				6426D7411459623A007BD692 /* TDSTrail.m in Sources */,
 				6426D7441459661A007BD692 /* TDSManagedObject.m in Sources */,
 				6426D75D14597149007BD692 /* TDSManagedObjectCache.m in Sources */,
-				8D9D8FE7145DCF940074921B /* TrackTableViewController.m in Sources */,
+				64B82C92145E7B83008E3CAA /* TDSTrailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

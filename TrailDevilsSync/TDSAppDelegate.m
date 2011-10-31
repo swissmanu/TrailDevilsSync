@@ -5,6 +5,8 @@
 //  Created by Manuel Alabor on 07.10.11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
+
+// RestKit:
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData/CoreData.h>
 #import <RestKit/Three20/Three20.h>
@@ -12,13 +14,14 @@
 #import <RestKit/Support/JSON/SBJSON/RKJSONParserSBJSON.h>
 #import <RestKit/Support/JSON/YAJL/RKJSONParserYAJL.h>
 
+// Three20:
 #import <Three20/Three20.h>
 #import <Three20/Three20+Additions.h>
 
+// TDS:
 #import "TDSAppDelegate.h"
 #import "TDSTrail.h"
-
-#import "TrackTableViewController.h"
+#import "TDSTrailsViewController.h"
 
 @implementation TDSAppDelegate
 
@@ -26,9 +29,6 @@
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
-
-@synthesize navigationController=_navigationController;
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -86,18 +86,14 @@
 #endif
     
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     
+    // Setup & open GUI:
+    TTURLMap* urlMap = [[TTNavigator navigator] URLMap];
+    [urlMap from:@"tds://trails" toViewController:[TDSTrailsViewController class]];
     
-    TrackTableViewController *trackView = [[TrackTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:trackView];
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.0 green:0.9 blue:0.3 alpha:1.0];
-
-    [self.window addSubview:[self.navigationController view]];    
-        
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    TTOpenURL(@"tds://trails");
+    [[TTNavigator navigator].window makeKeyAndVisible];
+    
     return YES;
 }
 
