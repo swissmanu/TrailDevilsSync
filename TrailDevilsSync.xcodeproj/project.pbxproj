@@ -29,9 +29,12 @@
 		64EC34AF143EF12E0063BC4D /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC34AB143EF12E0063BC4D /* libxml2.dylib */; };
 		64EC34B0143EF12E0063BC4D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC34AC143EF12E0063BC4D /* MobileCoreServices.framework */; };
 		64EC34B1143EF12E0063BC4D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC34AD143EF12E0063BC4D /* SystemConfiguration.framework */; };
-		8D0287BC1467B8D900DE0A4A /* state_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D0287BB1467B8D900DE0A4A /* state_gray.png */; };
 		8D0287BF1467BFC000DE0A4A /* TDSUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0287BE1467BFC000DE0A4A /* TDSUserTableViewController.m */; };
 		8D0287C51468355E00DE0A4A /* TDSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0287C41468355D00DE0A4A /* TDSUser.m */; };
+		8D0287CA1468482F00DE0A4A /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D0287C61468482F00DE0A4A /* map.png */; };
+		8D0287CB1468482F00DE0A4A /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D0287C71468482F00DE0A4A /* map@2x.png */; };
+		8D0287CC1468482F00DE0A4A /* group.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D0287C81468482F00DE0A4A /* group.png */; };
+		8D0287CD1468482F00DE0A4A /* group@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D0287C91468482F00DE0A4A /* group@2x.png */; };
 		8D1E4888145F02840075B61E /* TDSTrailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1E4887145F02840075B61E /* TDSTrailTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -155,11 +158,14 @@
 		64EC34AB143EF12E0063BC4D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		64EC34AC143EF12E0063BC4D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		64EC34AD143EF12E0063BC4D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		8D0287BB1467B8D900DE0A4A /* state_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = state_gray.png; sourceTree = "<group>"; };
 		8D0287BD1467BFAB00DE0A4A /* TDSUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSUserTableViewController.h; sourceTree = "<group>"; };
 		8D0287BE1467BFC000DE0A4A /* TDSUserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSUserTableViewController.m; sourceTree = "<group>"; };
 		8D0287C31468355D00DE0A4A /* TDSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSUser.h; sourceTree = "<group>"; };
 		8D0287C41468355D00DE0A4A /* TDSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSUser.m; sourceTree = "<group>"; };
+		8D0287C61468482F00DE0A4A /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		8D0287C71468482F00DE0A4A /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map@2x.png"; sourceTree = "<group>"; };
+		8D0287C81468482F00DE0A4A /* group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = group.png; sourceTree = "<group>"; };
+		8D0287C91468482F00DE0A4A /* group@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "group@2x.png"; sourceTree = "<group>"; };
 		8D1E4886145F02840075B61E /* TDSTrailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrailTableViewController.h; sourceTree = "<group>"; };
 		8D1E4887145F02840075B61E /* TDSTrailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrailTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -331,7 +337,10 @@
 		8D0287BA1467B8AC00DE0A4A /* images */ = {
 			isa = PBXGroup;
 			children = (
-				8D0287BB1467B8D900DE0A4A /* state_gray.png */,
+				8D0287C61468482F00DE0A4A /* map.png */,
+				8D0287C71468482F00DE0A4A /* map@2x.png */,
+				8D0287C81468482F00DE0A4A /* group.png */,
+				8D0287C91468482F00DE0A4A /* group@2x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -475,7 +484,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				64EC3469143EED4D0063BC4D /* InfoPlist.strings in Resources */,
-				8D0287BC1467B8D900DE0A4A /* state_gray.png in Resources */,
+				8D0287CA1468482F00DE0A4A /* map.png in Resources */,
+				8D0287CB1468482F00DE0A4A /* map@2x.png in Resources */,
+				8D0287CC1468482F00DE0A4A /* group.png in Resources */,
+				8D0287CD1468482F00DE0A4A /* group@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

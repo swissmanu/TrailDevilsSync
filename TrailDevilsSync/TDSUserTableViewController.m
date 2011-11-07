@@ -20,7 +20,7 @@
         users = [NSArray alloc];
         
         self.title = NSLocalizedString(@"Users", @"Users View Controller title");
-        self.tabBarItem.image = [UIImage imageNamed:@"state_gray"];
+        self.tabBarItem.image = [UIImage imageNamed:@"group"];
         
         UIBarButtonItem *temporaryBarButtonItem=[[UIBarButtonItem alloc] init];
 		temporaryBarButtonItem.title=@"Back";
