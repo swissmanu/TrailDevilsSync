@@ -15,6 +15,7 @@
 #import "TDSAppDelegate.h"
 #import "TDSTrail.h"
 #import "TDSTrailTableViewController.h"
+#import "TDSUserTableViewController.h"
 
 @interface TDSAppDelegate()
 
@@ -100,6 +101,8 @@
     TDSTrailTableViewController *trailsView = [[TDSTrailTableViewController alloc] initWithStyle:UITableViewStylePlain];
     [tabBarViews addObject:[self newNavigationControllerWrappingViewControllerForViewController:trailsView]];
     
+    TDSUserTableViewController *usersView = [[TDSUserTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    [tabBarViews addObject:[self newNavigationControllerWrappingViewControllerForViewController:usersView]];
     
     
     __tabBarController.viewControllers = tabBarViews;
