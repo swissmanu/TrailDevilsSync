@@ -11,7 +11,7 @@
 
 @implementation TDSTrailTableViewController
 
-@synthesize trails;
+@synthesize trails, fetchController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -57,6 +57,11 @@
     NSSortDescriptor *sortTrailsByCountry = [NSSortDescriptor sortDescriptorWithKey:@"country" ascending:YES];
     NSSortDescriptor *sortTrailsByName = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortTrailsByCountry, sortTrailsByName, nil]];
+    
+    fetchController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[TDSTrail managedObjectContext] sectionNameKeyPath:@"country" cacheName:nil];
+    
+    NSError *error;
+    [fetchController performFetch:&error];
     
     trails = [TDSTrail objectsWithFetchRequest:fetchRequest];
 }
@@ -108,13 +113,18 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return [fetchController.sections count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [trails count];
+    return [[[fetchController sections] objectAtIndex:section] numberOfObjects];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [[[fetchController sections] objectAtIndex:section] name];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -127,7 +137,9 @@
     }
     
     // Configure the cell...
-    cell.textLabel.text = [(TDSTrail*)[trails objectAtIndex:[indexPath row]] name];
+    TDSTrail* curTrail = (TDSTrail*)[fetchController objectAtIndexPath:indexPath];
+    
+    cell.textLabel.text = [curTrail name];
     
     return cell;
 }

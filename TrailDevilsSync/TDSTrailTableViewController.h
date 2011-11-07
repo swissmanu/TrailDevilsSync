@@ -13,9 +13,11 @@
 
 @interface TDSTrailTableViewController : UITableViewController <RKObjectLoaderDelegate> {
     NSArray *trails;
+    NSFetchedResultsController *fetchController;
 }
 
 @property (retain, atomic) NSArray *trails;
+@property (retain, atomic) NSFetchedResultsController *fetchController;
 
 - (void)loadObjectsFromDataStore;
 - (void)loadData;
