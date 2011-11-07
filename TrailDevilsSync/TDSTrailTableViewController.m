@@ -18,6 +18,14 @@
     self = [super initWithStyle:style];
     if (self) {
         trails = [NSArray alloc];
+        
+        self.title = NSLocalizedString(@"Trails", @"Trails View Controller title");
+        self.tabBarItem.image = [UIImage imageNamed:@"state_gray"];
+        
+        UIBarButtonItem *temporaryBarButtonItem=[[UIBarButtonItem alloc] init];
+		temporaryBarButtonItem.title=@"Back";
+		self.navigationItem.backBarButtonItem = temporaryBarButtonItem;
+        
     }
     return self;
 }
@@ -35,17 +43,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.title = NSLocalizedString(@"Trails", @"Trails View Controller title");
-    
+
     [self loadObjectsFromDataStore];
     
     [self loadData];
 }
 
+
 - (void)loadObjectsFromDataStore {
     trails = nil;
-    trails = [TDSTrail allObjects];
+    
+    NSFetchRequest* fetchRequest = [TDSTrail fetchRequest];
+    NSSortDescriptor *sortTrailsByCountry = [NSSortDescriptor sortDescriptorWithKey:@"country" ascending:YES];
+    NSSortDescriptor *sortTrailsByName = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortTrailsByCountry, sortTrailsByName, nil]];
+    
+    trails = [TDSTrail objectsWithFetchRequest:fetchRequest];
 }
 
 - (void)loadData {
