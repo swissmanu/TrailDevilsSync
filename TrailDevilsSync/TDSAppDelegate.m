@@ -16,13 +16,21 @@
 #import "TDSTrail.h"
 #import "TDSTrailTableViewController.h"
 
+@interface TDSAppDelegate()
+
+- (UINavigationController *)newNavigationControllerWrappingViewControllerForViewController:(UIViewController*)viewController;
+
+@end
+
+
 @implementation TDSAppDelegate
 
 @synthesize window = _window;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
-@synthesize navigationController = __navigationController;
+@synthesize tabBarController = __tabBarController;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -80,18 +88,47 @@
 #endif
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
+    
+    
+    /******* T a b B a r ******************************************************/
+    
+    self.tabBarController = [[UITabBarController alloc] init];
+    
+    
+    NSMutableArray *tabBarViews = [[NSMutableArray alloc] init];
+    
     TDSTrailTableViewController *trailsView = [[TDSTrailTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    [tabBarViews addObject:[self newNavigationControllerWrappingViewControllerForViewController:trailsView]];
     
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:trailsView];
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.0 green:0.7 blue:0.3 alpha:1.0];
     
-    [self.window addSubview:[self.navigationController view]];
+    
+    __tabBarController.viewControllers = tabBarViews;
+    
+    /**************************************************************************/
+    
+    
+    [self.window addSubview:[self.tabBarController view]];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+- (UINavigationController *)newNavigationControllerWrappingViewControllerForViewController:(UIViewController*)viewController {
+
+	// create the navigation controller with the view controller
+	UINavigationController *theNavigationController;
+	theNavigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
+    
+#ifdef DEBUG
+    //TODO: protocol for loadData method
+    UIBarButtonItem* refreshBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:viewController action:@selector(loadData)];
+    viewController.navigationItem.rightBarButtonItem = refreshBtn;
+#endif
+    
+	return theNavigationController;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

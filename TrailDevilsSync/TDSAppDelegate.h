@@ -16,7 +16,8 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property (nonatomic, retain) UINavigationController *navigationController;
+@property (nonatomic, retain) UITabBarController *tabBarController;
+
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
