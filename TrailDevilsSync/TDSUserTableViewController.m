@@ -121,7 +121,7 @@
     }
     
     // Configure the cell...
-    cell.textLabel.text = [(TDSUser*)[users objectAtIndex:[indexPath row]] name];
+    cell.textLabel.text = [(TDSUser*)[users objectAtIndex:[indexPath row]] username];
         
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     

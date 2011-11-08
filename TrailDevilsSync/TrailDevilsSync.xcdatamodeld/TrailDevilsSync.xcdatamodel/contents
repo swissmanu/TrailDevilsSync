@@ -25,11 +25,13 @@
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="TDSUser" representedClassName="TDSUser" parentEntity="TDSManagedObject" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="countryId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="TDSManagedObject" positionX="160" positionY="192" width="128" height="90"/>
         <element name="TDSTrail" positionX="160" positionY="192" width="128" height="300"/>
-        <element name="TDSUser" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="TDSUser" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>

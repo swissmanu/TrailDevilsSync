@@ -15,6 +15,7 @@
 #import "TDSAppDelegate.h"
 #import "TDSTrail.h"
 #import "TDSTrailTableViewController.h"
+#import "TDSUser.h"
 #import "TDSUserTableViewController.h"
 
 @interface TDSAppDelegate()
@@ -66,7 +67,7 @@
      ,@"NextCity",@"nextCity"
      ,@"State",@"state"
      ,@"Url",@"url"
-     ,@"TrailId",@"trailId"
+     ,@"Id",@"trailId"
      ,nil];
     //[objectManager.mappingProvider registerMapping:trailMapping withRootKeyPath:@"trail"];
     [objectManager.mappingProvider setMapping:trailMapping forKeyPath:@"trail"];
@@ -77,6 +78,22 @@
                            forMethod:RKRequestMethodGET];
     
     
+    RKManagedObjectMapping* userMapping = [RKManagedObjectMapping mappingForClass:[TDSUser class]];
+    userMapping.primaryKeyAttribute = @"id";
+    userMapping.setDefaultValueForMissingAttributes = YES;
+    [userMapping mapKeyPathsToAttributes:
+     @"Id", @"id"
+     ,@"CreatedDate", @"createdDate"
+     ,@"ModifiedDate", @"lastModifiedDate"
+     ,@"Username", @"username"
+     ,@"CountryId", @"countryId" 
+     , nil];
+    [objectManager.mappingProvider setMapping:userMapping forKeyPath:@"user"];
+    
+    
+    [objectManager.router routeClass:[TDSUser class]
+                      toResourcePath:@"/users"
+                           forMethod:RKRequestMethodGET];
     
 #ifdef DEBUG
     RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelDebug);

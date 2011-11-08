@@ -2,7 +2,7 @@
 //  TDSUser.m
 //  TrailDevilsSync
 //
-//  Created by Alexandre Joly on 07.11.11.
+//  Created by Alexandre Joly on 08.11.11.
 //  Copyright (c) 2011 Bühler AG Uzwil. All rights reserved.
 //
 
@@ -11,6 +11,8 @@
 
 @implementation TDSUser
 
-@dynamic name;
+@dynamic username;
+@dynamic id;
+@dynamic countryId;
 
 @end
