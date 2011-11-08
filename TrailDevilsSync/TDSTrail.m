@@ -29,4 +29,10 @@
 @dynamic trailId;
 @dynamic url;
 
+- (UIImage *)isOpenImageForTrailCellView {
+    NSLog(@"icon: \"%@\"", [NSString stringWithFormat:@"%@_16", [[self isOpen] description]]);
+	return [UIImage imageNamed:[NSString stringWithFormat:@"%@_16", [[self isOpen] description]]];
+}
+
+
 @end

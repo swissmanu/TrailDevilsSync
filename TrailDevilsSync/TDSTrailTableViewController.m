@@ -8,6 +8,8 @@
 
 #import "TDSTrailTableViewController.h"
 #import "TDSTrail.h"
+#import "TDSTrailDetailViewController.h"
+#import "TDSTrailViewCell.h"
 
 @implementation TDSTrailTableViewController
 
@@ -129,17 +131,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"TDSTrailViewCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    TDSTrailViewCell *cell = (TDSTrailViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[TDSTrailViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
     TDSTrail* curTrail = (TDSTrail*)[fetchController objectAtIndexPath:indexPath];
     
-    cell.textLabel.text = [curTrail name];
+    cell.trail = curTrail;
+    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
@@ -149,12 +153,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+    
+     TDSTrailDetailViewController *detailViewController = [[TDSTrailDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    detailViewController.trail = [fetchController objectAtIndexPath:indexPath];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+     
 }
 
 #pragma mark RKObjectLoaderDelegate methods

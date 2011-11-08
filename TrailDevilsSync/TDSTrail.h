@@ -31,4 +31,6 @@
 @property (nonatomic, retain) NSNumber * trailId;
 @property (nonatomic, retain) NSString * url;
 
+- (UIImage *)isOpenImageForTrailCellView;
+
 @end
