@@ -43,6 +43,9 @@
 		8D0287E31469A90600DE0A4A /* TDSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0287E21469A90500DE0A4A /* TDSUser.m */; };
 		8D1E4888145F02840075B61E /* TDSTrailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1E4887145F02840075B61E /* TDSTrailTableViewController.m */; };
 		8DC52DD7146D7358003C09DE /* TDSUserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC52DD6146D7358003C09DE /* TDSUserDetailViewController.m */; };
+		8DC52DDA146D7C29003C09DE /* TDSCheckInTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC52DD9146D7C29003C09DE /* TDSCheckInTableViewController.m */; };
+		8DC52DE0146D90F5003C09DE /* map-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DC52DDF146D90F5003C09DE /* map-pin.png */; };
+		8DC52DE2146D97AE003C09DE /* map-pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DC52DE1146D97AE003C09DE /* map-pin@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +189,10 @@
 		8D1E4887145F02840075B61E /* TDSTrailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrailTableViewController.m; sourceTree = "<group>"; };
 		8DC52DD5146D7358003C09DE /* TDSUserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSUserDetailViewController.h; sourceTree = "<group>"; };
 		8DC52DD6146D7358003C09DE /* TDSUserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSUserDetailViewController.m; sourceTree = "<group>"; };
+		8DC52DD8146D7C29003C09DE /* TDSCheckInTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSCheckInTableViewController.h; sourceTree = "<group>"; };
+		8DC52DD9146D7C29003C09DE /* TDSCheckInTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSCheckInTableViewController.m; sourceTree = "<group>"; };
+		8DC52DDF146D90F5003C09DE /* map-pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-pin.png"; sourceTree = "<group>"; };
+		8DC52DE1146D97AE003C09DE /* map-pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-pin@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,6 +355,8 @@
 				8D0287BE1467BFC000DE0A4A /* TDSUserTableViewController.m */,
 				8DC52DD5146D7358003C09DE /* TDSUserDetailViewController.h */,
 				8DC52DD6146D7358003C09DE /* TDSUserDetailViewController.m */,
+				8DC52DD8146D7C29003C09DE /* TDSCheckInTableViewController.h */,
+				8DC52DD9146D7C29003C09DE /* TDSCheckInTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -363,6 +372,8 @@
 		8D0287BA1467B8AC00DE0A4A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8DC52DE1146D97AE003C09DE /* map-pin@2x.png */,
+				8DC52DDF146D90F5003C09DE /* map-pin.png */,
 				8D0287DB1469960100DE0A4A /* (null)_16.png */,
 				8D0287DC1469960100DE0A4A /* 1_16.png */,
 				8D0287DD1469960200DE0A4A /* 0_16.png */,
@@ -520,6 +531,8 @@
 				8D0287DE1469960200DE0A4A /* (null)_16.png in Resources */,
 				8D0287DF1469960200DE0A4A /* 1_16.png in Resources */,
 				8D0287E01469960200DE0A4A /* 0_16.png in Resources */,
+				8DC52DE0146D90F5003C09DE /* map-pin.png in Resources */,
+				8DC52DE2146D97AE003C09DE /* map-pin@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +556,7 @@
 				8D0287DA14698C0800DE0A4A /* TDSTrailViewCell.m in Sources */,
 				8D0287E31469A90600DE0A4A /* TDSUser.m in Sources */,
 				8DC52DD7146D7358003C09DE /* TDSUserDetailViewController.m in Sources */,
+				8DC52DDA146D7C29003C09DE /* TDSCheckInTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
