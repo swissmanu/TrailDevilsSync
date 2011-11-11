@@ -57,8 +57,8 @@
 	labelView.frame = labelRect;	
 }
 
-- (void)setTrail:(TDSTrail *)anTrail {
-	trail = anTrail;
+- (void)setTrail:(TDSTrail *)aTrail {
+	trail = aTrail;
 	
     trailIsOpenView.trail = trail;
 	labelView.text = trail.name;
