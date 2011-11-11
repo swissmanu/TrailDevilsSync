@@ -13,9 +13,12 @@
 
 @interface TDSUserTableViewController : UITableViewController <RKObjectLoaderDelegate> {
     NSArray *users;
+    NSFetchedResultsController *fetchController;
 }
 
 @property (retain, atomic) NSArray *users;
+@property (retain, atomic) NSFetchedResultsController *fetchController;
+
 
 - (void)loadObjectsFromDataStore;
 - (void)loadData;

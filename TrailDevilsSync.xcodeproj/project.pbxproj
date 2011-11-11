@@ -42,6 +42,7 @@
 		8D0287E01469960200DE0A4A /* 0_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D0287DD1469960200DE0A4A /* 0_16.png */; };
 		8D0287E31469A90600DE0A4A /* TDSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0287E21469A90500DE0A4A /* TDSUser.m */; };
 		8D1E4888145F02840075B61E /* TDSTrailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1E4887145F02840075B61E /* TDSTrailTableViewController.m */; };
+		8DC52DD7146D7358003C09DE /* TDSUserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC52DD6146D7358003C09DE /* TDSUserDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +184,8 @@
 		8D0287E21469A90500DE0A4A /* TDSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSUser.m; sourceTree = "<group>"; };
 		8D1E4886145F02840075B61E /* TDSTrailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrailTableViewController.h; sourceTree = "<group>"; };
 		8D1E4887145F02840075B61E /* TDSTrailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrailTableViewController.m; sourceTree = "<group>"; };
+		8DC52DD5146D7358003C09DE /* TDSUserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSUserDetailViewController.h; sourceTree = "<group>"; };
+		8DC52DD6146D7358003C09DE /* TDSUserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSUserDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,10 +342,12 @@
 			children = (
 				8D1E4886145F02840075B61E /* TDSTrailTableViewController.h */,
 				8D1E4887145F02840075B61E /* TDSTrailTableViewController.m */,
-				8D0287BD1467BFAB00DE0A4A /* TDSUserTableViewController.h */,
-				8D0287BE1467BFC000DE0A4A /* TDSUserTableViewController.m */,
 				8D0287CE146900B400DE0A4A /* TDSTrailDetailViewController.h */,
 				8D0287CF146900B400DE0A4A /* TDSTrailDetailViewController.m */,
+				8D0287BD1467BFAB00DE0A4A /* TDSUserTableViewController.h */,
+				8D0287BE1467BFC000DE0A4A /* TDSUserTableViewController.m */,
+				8DC52DD5146D7358003C09DE /* TDSUserDetailViewController.h */,
+				8DC52DD6146D7358003C09DE /* TDSUserDetailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -537,6 +542,7 @@
 				8D0287D7146982C200DE0A4A /* TDSTrailIsOpenView.m in Sources */,
 				8D0287DA14698C0800DE0A4A /* TDSTrailViewCell.m in Sources */,
 				8D0287E31469A90600DE0A4A /* TDSUser.m in Sources */,
+				8DC52DD7146D7358003C09DE /* TDSUserDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,10 +8,11 @@
 
 #import "TDSUserTableViewController.h"
 #import "TDSUser.h"
+#import "TDSUserDetailViewController.h"
 
 @implementation TDSUserTableViewController
 
-@synthesize users;
+@synthesize users, fetchController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -51,8 +52,19 @@
 
 
 - (void)loadObjectsFromDataStore {
-    users = nil;
-    users = [TDSUser allObjects];
+    users = nil;    
+    
+    NSFetchRequest* fetchRequest = [TDSUser fetchRequest];
+    NSSortDescriptor *sortUsersByUsername = [NSSortDescriptor sortDescriptorWithKey:@"username" ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortUsersByUsername, nil]];
+    
+    fetchController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[TDSUser managedObjectContext] sectionNameKeyPath:nil cacheName:nil];
+    
+    NSError *error;
+    [fetchController performFetch:&error];
+    
+    users = [TDSUser objectsWithFetchRequest:fetchRequest];
+
 }
 
 - (void)loadData {
@@ -102,13 +114,13 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return [fetchController.sections count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [users count];
+    return [[[fetchController sections] objectAtIndex:section] numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -120,8 +132,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
+    TDSUser* curUser = (TDSUser*)[fetchController objectAtIndexPath:indexPath];
+    
     // Configure the cell...
-    cell.textLabel.text = [(TDSUser*)[users objectAtIndex:[indexPath row]] username];
+    cell.textLabel.text = [curUser username];
         
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
@@ -132,13 +146,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    TDSUserDetailViewController *detailViewController = [[TDSUserDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    detailViewController.user = (TDSUser*)[fetchController objectAtIndexPath:indexPath];
+    // ...
+    // Pass the selected object to the new view controller.
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 #pragma mark RKObjectLoaderDelegate methods
