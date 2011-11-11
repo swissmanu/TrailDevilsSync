@@ -8,6 +8,7 @@
 
 #import "TDSTrailDetailViewController.h"
 #import "TDSTrail.h"
+#import "TDSCheckInTableViewController.h"
 
 @implementation TDSTrailDetailViewController
 
@@ -17,7 +18,11 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        
+        
+        UIBarButtonItem *temporaryBarButtonItem=[[UIBarButtonItem alloc] init];
+		temporaryBarButtonItem.title=@"Back";
+		self.navigationItem.backBarButtonItem = temporaryBarButtonItem;
     }
     return self;
 }
@@ -158,12 +163,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    
+    NSArray *curSection = [groupedData objectAtIndex:[indexPath section]];
+    
+    if ([[curSection objectAtIndex:[indexPath row]] isEqual:@"checkins"]) {
+    
+        TDSCheckInTableViewController *checkInViewController = [[TDSCheckInTableViewController alloc] initWithStyle:UITableViewStylePlain];
+        checkInViewController.trail = trail;
+        // ...
+        // Pass the selected object to the new view controller.
+        [self.navigationController pushViewController:checkInViewController animated:YES];
+    }
+     
 }
 
 @end

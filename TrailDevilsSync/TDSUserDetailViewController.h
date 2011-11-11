@@ -19,6 +19,7 @@
 @property (retain, nonatomic) NSArray* groupedData;
 
 - (void)loadData;
+- (void)pushCheckIn;
 
 
 @end
