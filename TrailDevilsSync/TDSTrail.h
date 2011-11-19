@@ -2,14 +2,15 @@
 //  TDSTrail.h
 //  TrailDevilsSync
 //
-//  Created by Manuel Alabor on 31.10.11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Alexandre Joly on 18.11.11.
+//  Copyright (c) 2011 Bühler AG Uzwil. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "TDSManagedObject.h"
 
+@class TDSTrailCheckIn, TDSTrailType;
 
 @interface TDSTrail : TDSManagedObject
 
@@ -30,7 +31,23 @@
 @property (nonatomic, retain) NSString * state;
 @property (nonatomic, retain) NSNumber * trailId;
 @property (nonatomic, retain) NSString * url;
+@property (nonatomic, retain) NSSet *trailTypes;
+@property (nonatomic, retain) NSSet *checkins;
 
 - (UIImage *)isOpenImageForTrailCellView;
+
+@end
+
+@interface TDSTrail (CoreDataGeneratedAccessors)
+
+- (void)addTrailTypesObject:(TDSTrailType *)value;
+- (void)removeTrailTypesObject:(TDSTrailType *)value;
+- (void)addTrailTypes:(NSSet *)values;
+- (void)removeTrailTypes:(NSSet *)values;
+
+- (void)addCheckinsObject:(TDSTrailCheckIn *)value;
+- (void)removeCheckinsObject:(TDSTrailCheckIn *)value;
+- (void)addCheckins:(NSSet *)values;
+- (void)removeCheckins:(NSSet *)values;
 
 @end

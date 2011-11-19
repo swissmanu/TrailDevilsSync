@@ -2,11 +2,13 @@
 //  TDSTrail.m
 //  TrailDevilsSync
 //
-//  Created by Manuel Alabor on 31.10.11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Alexandre Joly on 18.11.11.
+//  Copyright (c) 2011 Bühler AG Uzwil. All rights reserved.
 //
 
 #import "TDSTrail.h"
+#import "TDSTrailCheckIn.h"
+#import "TDSTrailType.h"
 
 
 @implementation TDSTrail
@@ -28,11 +30,12 @@
 @dynamic state;
 @dynamic trailId;
 @dynamic url;
+@dynamic trailTypes;
+@dynamic checkins;
 
 - (UIImage *)isOpenImageForTrailCellView {
     NSLog(@"icon: \"%@\"", [NSString stringWithFormat:@"%@_16", [[self isOpen] description]]);
 	return [UIImage imageNamed:[NSString stringWithFormat:@"%@_16", [[self isOpen] description]]];
 }
-
 
 @end

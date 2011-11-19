@@ -23,15 +23,38 @@
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="trailId" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="checkins" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TDSTrailCheckIn" inverseName="trail" inverseEntity="TDSTrailCheckIn" syncable="YES"/>
+        <relationship name="trailTypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TDSTrailType" inverseName="trails" inverseEntity="TDSTrailType" syncable="YES"/>
+    </entity>
+    <entity name="TDSTrailCheckIn" representedClassName="TDSTrailCheckIn" parentEntity="TDSManagedObject" syncable="YES">
+        <attribute name="checkinDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="checkinId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="isManualCheckin" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="posLatitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="posLongitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="posPrecision" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="trailId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="trail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TDSTrail" inverseName="checkins" inverseEntity="TDSTrail" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TDSUser" inverseName="checkins" inverseEntity="TDSUser" syncable="YES"/>
+    </entity>
+    <entity name="TDSTrailType" representedClassName="TDSTrailType" parentEntity="TDSManagedObject" syncable="YES">
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="trailTypeId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="trails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TDSTrail" inverseName="trailTypes" inverseEntity="TDSTrail" syncable="YES"/>
     </entity>
     <entity name="TDSUser" representedClassName="TDSUser" parentEntity="TDSManagedObject" syncable="YES">
         <attribute name="countryId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="checkins" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TDSTrailCheckIn" inverseName="user" inverseEntity="TDSTrailCheckIn" syncable="YES"/>
     </entity>
     <elements>
         <element name="TDSManagedObject" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="TDSTrail" positionX="160" positionY="192" width="128" height="300"/>
+        <element name="TDSTrail" positionX="160" positionY="192" width="128" height="315"/>
+        <element name="TDSTrailType" positionX="160" positionY="192" width="128" height="105"/>
         <element name="TDSUser" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="TDSTrailCheckIn" positionX="160" positionY="192" width="128" height="195"/>
     </elements>
 </model>

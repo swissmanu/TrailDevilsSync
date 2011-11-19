@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
-		6426D7411459623A007BD692 /* TDSTrail.m in Sources */ = {isa = PBXBuildFile; fileRef = 6426D7401459623A007BD692 /* TDSTrail.m */; };
 		6426D7441459661A007BD692 /* TDSManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6426D7431459661A007BD692 /* TDSManagedObject.m */; };
 		6426D75D14597149007BD692 /* TDSManagedObjectCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6426D75C14597149007BD692 /* TDSManagedObjectCache.m */; };
 		64EC345D143EED4C0063BC4D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC345C143EED4C0063BC4D /* UIKit.framework */; };
@@ -40,8 +39,11 @@
 		8D0287DE1469960200DE0A4A /* (null)_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D0287DB1469960100DE0A4A /* (null)_16.png */; };
 		8D0287DF1469960200DE0A4A /* 1_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D0287DC1469960100DE0A4A /* 1_16.png */; };
 		8D0287E01469960200DE0A4A /* 0_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D0287DD1469960200DE0A4A /* 0_16.png */; };
-		8D0287E31469A90600DE0A4A /* TDSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0287E21469A90500DE0A4A /* TDSUser.m */; };
 		8D1E4888145F02840075B61E /* TDSTrailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1E4887145F02840075B61E /* TDSTrailTableViewController.m */; };
+		8DA2AF2A1476B1DC00654F55 /* TDSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2AF291476B1DC00654F55 /* TDSUser.m */; };
+		8DA2AF2D1476B1DC00654F55 /* TDSTrailCheckIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2AF2C1476B1DC00654F55 /* TDSTrailCheckIn.m */; };
+		8DA2AF301476B1DC00654F55 /* TDSTrailType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2AF2F1476B1DC00654F55 /* TDSTrailType.m */; };
+		8DA2AF331476B1DC00654F55 /* TDSTrail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2AF321476B1DC00654F55 /* TDSTrail.m */; };
 		8DC52DD7146D7358003C09DE /* TDSUserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC52DD6146D7358003C09DE /* TDSUserDetailViewController.m */; };
 		8DC52DDA146D7C29003C09DE /* TDSCheckInTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC52DD9146D7C29003C09DE /* TDSCheckInTableViewController.m */; };
 		8DC52DE0146D90F5003C09DE /* map-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DC52DDF146D90F5003C09DE /* map-pin.png */; };
@@ -145,8 +147,6 @@
 /* Begin PBXFileReference section */
 		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.frameworks; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		320B6C86F11D9990244A9730 /* Three20.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Three20.bundle; path = three20/src/Three20.bundle; sourceTree = SOURCE_ROOT; };
-		6426D73F1459623A007BD692 /* TDSTrail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrail.h; sourceTree = "<group>"; };
-		6426D7401459623A007BD692 /* TDSTrail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrail.m; sourceTree = "<group>"; };
 		6426D7421459661A007BD692 /* TDSManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSManagedObject.h; sourceTree = "<group>"; };
 		6426D7431459661A007BD692 /* TDSManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSManagedObject.m; sourceTree = "<group>"; };
 		6426D75B14597149007BD692 /* TDSManagedObjectCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSManagedObjectCache.h; sourceTree = "<group>"; };
@@ -183,10 +183,16 @@
 		8D0287DB1469960100DE0A4A /* (null)_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "(null)_16.png"; sourceTree = "<group>"; };
 		8D0287DC1469960100DE0A4A /* 1_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1_16.png; sourceTree = "<group>"; };
 		8D0287DD1469960200DE0A4A /* 0_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0_16.png; sourceTree = "<group>"; };
-		8D0287E11469A90500DE0A4A /* TDSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSUser.h; sourceTree = "<group>"; };
-		8D0287E21469A90500DE0A4A /* TDSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSUser.m; sourceTree = "<group>"; };
 		8D1E4886145F02840075B61E /* TDSTrailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrailTableViewController.h; sourceTree = "<group>"; };
 		8D1E4887145F02840075B61E /* TDSTrailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrailTableViewController.m; sourceTree = "<group>"; };
+		8DA2AF281476B1DB00654F55 /* TDSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSUser.h; sourceTree = "<group>"; };
+		8DA2AF291476B1DC00654F55 /* TDSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSUser.m; sourceTree = "<group>"; };
+		8DA2AF2B1476B1DC00654F55 /* TDSTrailCheckIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrailCheckIn.h; sourceTree = "<group>"; };
+		8DA2AF2C1476B1DC00654F55 /* TDSTrailCheckIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrailCheckIn.m; sourceTree = "<group>"; };
+		8DA2AF2E1476B1DC00654F55 /* TDSTrailType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrailType.h; sourceTree = "<group>"; };
+		8DA2AF2F1476B1DC00654F55 /* TDSTrailType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrailType.m; sourceTree = "<group>"; };
+		8DA2AF311476B1DC00654F55 /* TDSTrail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrail.h; sourceTree = "<group>"; };
+		8DA2AF321476B1DC00654F55 /* TDSTrail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrail.m; sourceTree = "<group>"; };
 		8DC52DD5146D7358003C09DE /* TDSUserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSUserDetailViewController.h; sourceTree = "<group>"; };
 		8DC52DD6146D7358003C09DE /* TDSUserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSUserDetailViewController.m; sourceTree = "<group>"; };
 		8DC52DD8146D7C29003C09DE /* TDSCheckInTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSCheckInTableViewController.h; sourceTree = "<group>"; };
@@ -323,10 +329,14 @@
 		64EC34B4143EF3740063BC4D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8D0287E11469A90500DE0A4A /* TDSUser.h */,
-				8D0287E21469A90500DE0A4A /* TDSUser.m */,
-				6426D73F1459623A007BD692 /* TDSTrail.h */,
-				6426D7401459623A007BD692 /* TDSTrail.m */,
+				8DA2AF311476B1DC00654F55 /* TDSTrail.h */,
+				8DA2AF321476B1DC00654F55 /* TDSTrail.m */,
+				8DA2AF2E1476B1DC00654F55 /* TDSTrailType.h */,
+				8DA2AF2F1476B1DC00654F55 /* TDSTrailType.m */,
+				8DA2AF2B1476B1DC00654F55 /* TDSTrailCheckIn.h */,
+				8DA2AF2C1476B1DC00654F55 /* TDSTrailCheckIn.m */,
+				8DA2AF281476B1DB00654F55 /* TDSUser.h */,
+				8DA2AF291476B1DC00654F55 /* TDSUser.m */,
 				6426D7421459661A007BD692 /* TDSManagedObject.h */,
 				6426D7431459661A007BD692 /* TDSManagedObject.m */,
 			);
@@ -546,7 +556,6 @@
 				64EC346B143EED4D0063BC4D /* main.m in Sources */,
 				64EC346F143EED4D0063BC4D /* TDSAppDelegate.m in Sources */,
 				64EC3472143EED4D0063BC4D /* TrailDevilsSync.xcdatamodeld in Sources */,
-				6426D7411459623A007BD692 /* TDSTrail.m in Sources */,
 				6426D7441459661A007BD692 /* TDSManagedObject.m in Sources */,
 				6426D75D14597149007BD692 /* TDSManagedObjectCache.m in Sources */,
 				8D1E4888145F02840075B61E /* TDSTrailTableViewController.m in Sources */,
@@ -554,9 +563,12 @@
 				8D0287D0146900B400DE0A4A /* TDSTrailDetailViewController.m in Sources */,
 				8D0287D7146982C200DE0A4A /* TDSTrailIsOpenView.m in Sources */,
 				8D0287DA14698C0800DE0A4A /* TDSTrailViewCell.m in Sources */,
-				8D0287E31469A90600DE0A4A /* TDSUser.m in Sources */,
 				8DC52DD7146D7358003C09DE /* TDSUserDetailViewController.m in Sources */,
 				8DC52DDA146D7C29003C09DE /* TDSCheckInTableViewController.m in Sources */,
+				8DA2AF2A1476B1DC00654F55 /* TDSUser.m in Sources */,
+				8DA2AF2D1476B1DC00654F55 /* TDSTrailCheckIn.m in Sources */,
+				8DA2AF301476B1DC00654F55 /* TDSTrailType.m in Sources */,
+				8DA2AF331476B1DC00654F55 /* TDSTrail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
