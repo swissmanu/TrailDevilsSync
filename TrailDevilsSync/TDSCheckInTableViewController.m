@@ -9,10 +9,17 @@
 #import "TDSCheckInTableViewController.h"
 #import "TDSUser.h"
 #import "TDSTrail.h"
+#import "TDSTrailCheckIn.h"
+
+@interface TDSCheckInTableViewController()
+
+- (void)loadObjectsFromDataStoreWith:(NSPredicate*)predicate;
+
+@end
 
 @implementation TDSCheckInTableViewController
 
-@synthesize user, trail;
+@synthesize user, trail, fetchController;
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -38,19 +45,52 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.title = NSLocalizedString(@"Check Ins", @"Check Ins");
 }
 
-- (void)loadUserData {
-    //TODO
+- (void)loadDataWithUser {
+    // Load the object model via RestKit	
+    RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    
+    [objectManager loadObjectsAtResourcePath:[NSString stringWithFormat:@"/users/%i/checkins", [[user userId] intValue]] delegate:self block:^(RKObjectLoader* loader) {
+        loader.objectMapping = [objectManager.mappingProvider objectMappingForClass:[TDSTrailCheckIn class]];
+    }]; 
 }
 
-- (void)loadTrailData {
-    //TODO
+- (void)loadObjectsFromDataStoreWithUser {
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userId == %i", [[user userId] intValue]];
+
+    [self loadObjectsFromDataStoreWith:predicate];
+}
+
+- (void)loadDataWithTrail {
+    // Load the object model via RestKit	
+    RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    
+    [objectManager loadObjectsAtResourcePath:[NSString stringWithFormat:@"/trails/%i/checkins", [[trail trailId] intValue]] delegate:self block:^(RKObjectLoader* loader) {
+        loader.objectMapping = [objectManager.mappingProvider objectMappingForClass:[TDSTrailCheckIn class]];
+    }]; 
+}
+
+- (void)loadObjectsFromDataStoreWithTrail {
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"trailId == %i", [[trail trailId] intValue]];
+    
+    [self loadObjectsFromDataStoreWith:predicate];
+}
+
+- (void)loadObjectsFromDataStoreWith:(NSPredicate*)predicate {
+    NSFetchRequest* fetchRequest = [TDSTrailCheckIn fetchRequest];
+    NSSortDescriptor *sortCheckInsByDate = [NSSortDescriptor sortDescriptorWithKey:@"checkinDate" ascending:YES];
+    
+    [fetchRequest setPredicate:predicate];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortCheckInsByDate, nil]];
+    
+    fetchController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[TDSTrailCheckIn managedObjectContext] sectionNameKeyPath:@"day" cacheName:nil];
+    
+    NSError *error;
+    [fetchController performFetch:&error];
 }
 
 - (void)viewDidUnload
@@ -90,16 +130,19 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return [[fetchController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [[[fetchController sections] objectAtIndex:section] numberOfObjects];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [[[fetchController sections] objectAtIndex:section] name];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -112,6 +155,9 @@
     }
     
     // Configure the cell...
+    TDSTrailCheckIn* curCheckIn = (TDSTrailCheckIn*)[fetchController objectAtIndexPath:indexPath];
+    
+    cell.textLabel.text = [curCheckIn.trailId stringValue];
     
     return cell;
 }
@@ -129,20 +175,47 @@
      */
 }
 
+#pragma mark RKObjectLoaderDelegate methods
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+    if ([objectLoader wasSentToResourcePath:[NSString stringWithFormat:@"/users/%i/checkins", [[user userId] intValue]]]) {
+        [self loadObjectsFromDataStoreWithUser];
+    } else if ([objectLoader wasSentToResourcePath:[NSString stringWithFormat:@"/trails/%i/checkins", [[trail trailId] intValue]]]) {
+        [self loadObjectsFromDataStoreWithTrail];
+    }
+    
+    
+	[self.tableView reloadData];
+    
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
+	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" 
+                                                    message:[error localizedDescription] 
+                                                   delegate:nil 
+                                          cancelButtonTitle:@"OK" otherButtonTitles:nil];
+	[alert show];
+	NSLog(@"Hit error: %@", error);
+}
+
 #pragma mark - Setter
 
 - (void)setTrail:(TDSTrail *)aTrail {
     trail = aTrail;
     user = nil;
     
-    [self loadTrailData];
+    [self loadObjectsFromDataStoreWithTrail];
+    
+    [self loadDataWithTrail];
 }
 
 - (void)setUser:(TDSUser *)aUser {
     user = aUser;
     trail = nil;
     
-    [self loadUserData];
+    [self loadObjectsFromDataStoreWithUser];
+    
+    [self loadDataWithUser];
 
 }
 
