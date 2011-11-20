@@ -151,13 +151,34 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
     TDSTrailCheckIn* curCheckIn = (TDSTrailCheckIn*)[fetchController objectAtIndexPath:indexPath];
+    TDSUser *curUser = nil;
+    TDSTrail *curTrail = nil;
     
-    cell.textLabel.text = [curCheckIn.trailId stringValue];
+    
+    if (user) {
+        curUser = user;
+        curTrail = [TDSTrail findFirstByAttribute:@"trailId" withValue:curCheckIn.trailId];
+        
+        cell.textLabel.text = [curTrail name];
+        
+    } else if (trail) {
+        curTrail = trail;
+        curUser = [TDSUser findFirstByAttribute:@"userId" withValue:curCheckIn.userId];
+        
+        cell.textLabel.text = [curUser username];
+        
+    } else {
+        cell.textLabel.text = @"Something is wrong! :(";
+    }
+    
+    cell.detailTextLabel.text = [curCheckIn.checkinDate description];
+    
+    
     
     return cell;
 }
