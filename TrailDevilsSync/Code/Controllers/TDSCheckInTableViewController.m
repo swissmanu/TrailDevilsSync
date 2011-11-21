@@ -82,7 +82,7 @@
 
 - (void)loadObjectsFromDataStoreWith:(NSPredicate*)predicate {
     NSFetchRequest* fetchRequest = [TDSTrailCheckIn fetchRequest];
-    NSSortDescriptor *sortCheckInsByDate = [NSSortDescriptor sortDescriptorWithKey:@"checkinDate" ascending:YES];
+    NSSortDescriptor *sortCheckInsByDate = [NSSortDescriptor sortDescriptorWithKey:@"checkinDate" ascending:NO];
     
     [fetchRequest setPredicate:predicate];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortCheckInsByDate, nil]];
@@ -178,7 +178,7 @@
     
     cell.detailTextLabel.text = [curCheckIn.checkinDate description];
     
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }
