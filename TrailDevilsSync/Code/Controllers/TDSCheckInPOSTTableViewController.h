@@ -8,18 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+#import "TDSTrailPopViewProtocol.h"
+
 @class TDSUser;
 @class TDSTrail;
 @class TDSTrailCheckIn;
 
-@interface TDSCheckInPOSTTableViewController : UITableViewController {
+@interface TDSCheckInPOSTTableViewController : UITableViewController <TDSTrailPopViewProtocol> {
     TDSUser *user;
-    TDSTrail *trail;
     TDSTrailCheckIn *checkInToPost;
 }
 
 @property (nonatomic, retain) TDSUser *user;
-@property (nonatomic, retain) TDSTrail *trail;
 @property (nonatomic, retain) TDSTrailCheckIn *checkInToPost;
 
 @end

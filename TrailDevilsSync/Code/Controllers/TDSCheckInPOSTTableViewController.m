@@ -12,6 +12,7 @@
 #import "TDSUser.h"
 #import "TDSTrail.h"
 #import "TDSTrailCheckIn.h"
+#import "TDSTrailTableViewController.h"
 
 
 @implementation TDSCheckInPOSTTableViewController
@@ -144,13 +145,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    
+    if (indexPath.section == 1) {
+        TDSTrailTableViewController *trailViewController = [[TDSTrailTableViewController alloc] initWithStyle:UITableViewStylePlain popToView:self];
+        
+        [self.navigationController pushViewController:trailViewController animated:YES];
+    }
 }
 
 #pragma mark - Setter
@@ -158,13 +158,13 @@
 - (void)setTrail:(TDSTrail *)aTrail {
     trail = aTrail;
     
-    //TODO: reload datasource
+    [self.tableView reloadData];
 }
 
 - (void)setUser:(TDSUser *)aUser {
     user = aUser;
     
-    //TODO: reload datasource
+    [self.tableView reloadData];
 }
 
 @end

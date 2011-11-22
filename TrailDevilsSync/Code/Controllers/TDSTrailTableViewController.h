@@ -8,16 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+//TDS
+#import "TDSTrailPopViewProtocol.h"
+
 //RestKit
 #import <RestKit/RestKit.h>
 
 @interface TDSTrailTableViewController : UITableViewController <RKObjectLoaderDelegate> {
     NSArray *trails;
     NSFetchedResultsController *fetchController;
+    id<TDSTrailPopViewProtocol> popView;
 }
 
 @property (retain, atomic) NSArray *trails;
 @property (retain, atomic) NSFetchedResultsController *fetchController;
+@property (retain, nonatomic) id<TDSTrailPopViewProtocol> popView;
+
+- (id)initWithStyle:(UITableViewStyle)style popToView:(id<TDSTrailPopViewProtocol>)viewOrNil;
 
 - (void)loadObjectsFromDataStore;
 - (void)loadData;

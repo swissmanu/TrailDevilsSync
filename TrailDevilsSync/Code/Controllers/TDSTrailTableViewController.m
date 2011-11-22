@@ -13,13 +13,21 @@
 
 @implementation TDSTrailTableViewController
 
-@synthesize trails, fetchController;
+@synthesize trails, fetchController, popView;
+
+static NSInteger UPDATE_TIME = 300;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
+    return [self initWithStyle:style popToView:nil];
+}
+
+- (id)initWithStyle:(UITableViewStyle)style popToView:(id<TDSTrailPopViewProtocol>)viewOrNil {
+    
     self = [super initWithStyle:style];
     if (self) {
         trails = [NSArray alloc];
+        popView = viewOrNil;
         
         self.title = NSLocalizedString(@"Trails", @"Trails View Controller title");
         self.tabBarItem.image = [UIImage imageNamed:@"map"];
@@ -48,7 +56,10 @@
 
     [self loadObjectsFromDataStore];
     
-    [self loadData];
+    NSTimeInterval loadDataTimediff = [[[NSUserDefaults standardUserDefaults] objectForKey:@"TDSTrailLastUpdatedAt"] timeIntervalSinceNow];
+    if (fabs(loadDataTimediff) > UPDATE_TIME || !loadDataTimediff) 
+        [self loadData];
+
 }
 
 
@@ -154,17 +165,28 @@
 {
     // Navigation logic may go here. Create and push another view controller.
     
-     TDSTrailDetailViewController *detailViewController = [[TDSTrailDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    detailViewController.trail = [fetchController objectAtIndexPath:indexPath];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
+    
+    if (popView) {
+        popView.trail = [fetchController objectAtIndexPath:indexPath];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+    
+        TDSTrailDetailViewController *detailViewController = [[TDSTrailDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        detailViewController.trail = [fetchController objectAtIndexPath:indexPath];
      
+    
+        [self.navigationController pushViewController:detailViewController animated:YES];
+    }
 }
 
 #pragma mark RKObjectLoaderDelegate methods
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:[NSString stringWithFormat:@"%@LastUpdatedAt", [[objects objectAtIndex:0] class]]];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+    
 	[self loadObjectsFromDataStore];
 	[self.tableView reloadData];
     
