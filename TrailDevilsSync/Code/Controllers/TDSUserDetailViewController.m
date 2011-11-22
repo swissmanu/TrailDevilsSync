@@ -9,6 +9,8 @@
 #import "TDSUserDetailViewController.h"
 #import "TDSUser.h"
 #import "TDSCheckInTableViewController.h"
+#import "TDSCheckInPOSTTableViewController.h"
+
 
 @implementation TDSUserDetailViewController
 
@@ -55,7 +57,11 @@
 }
 
 - (void)pushCheckIn {
-    //TODO:
+    TDSCheckInPOSTTableViewController *checkInViewController = [[TDSCheckInPOSTTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    checkInViewController.user = user;
+
+    [self.navigationController pushViewController:checkInViewController animated:YES];
+    
 }
 
 
@@ -166,8 +172,7 @@
     
         TDSCheckInTableViewController *checkInViewController = [[TDSCheckInTableViewController alloc] initWithStyle:UITableViewStylePlain];
         checkInViewController.user = user;
-        // ...
-        // Pass the selected object to the new view controller.
+
         [self.navigationController pushViewController:checkInViewController animated:YES];
 
     }
