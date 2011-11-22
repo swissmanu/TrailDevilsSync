@@ -20,8 +20,8 @@
     if (self) {
         
         
-        UIBarButtonItem *temporaryBarButtonItem=[[UIBarButtonItem alloc] init];
-		temporaryBarButtonItem.title=@"Back";
+        UIBarButtonItem *temporaryBarButtonItem = [[UIBarButtonItem alloc] init];
+		temporaryBarButtonItem.title = NSLocalizedString(@"Back", @"Back");
 		self.navigationItem.backBarButtonItem = temporaryBarButtonItem;
     }
     return self;

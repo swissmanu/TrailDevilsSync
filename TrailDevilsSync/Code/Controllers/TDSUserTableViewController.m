@@ -24,7 +24,7 @@
         self.tabBarItem.image = [UIImage imageNamed:@"group"];
         
         UIBarButtonItem *temporaryBarButtonItem=[[UIBarButtonItem alloc] init];
-		temporaryBarButtonItem.title=@"Back";
+		temporaryBarButtonItem.title=NSLocalizedString(@"Back", @"Back");
 		self.navigationItem.backBarButtonItem = temporaryBarButtonItem;
         
     }

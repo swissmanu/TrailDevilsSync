@@ -24,8 +24,8 @@
         self.title = NSLocalizedString(@"Trails", @"Trails View Controller title");
         self.tabBarItem.image = [UIImage imageNamed:@"map"];
         
-        UIBarButtonItem *temporaryBarButtonItem=[[UIBarButtonItem alloc] init];
-		temporaryBarButtonItem.title=@"Back";
+        UIBarButtonItem *temporaryBarButtonItem = [[UIBarButtonItem alloc] init];
+		temporaryBarButtonItem.title = NSLocalizedString(@"Back", @"Back");
 		self.navigationItem.backBarButtonItem = temporaryBarButtonItem;
         
     }

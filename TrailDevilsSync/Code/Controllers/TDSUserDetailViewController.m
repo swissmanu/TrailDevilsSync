@@ -24,8 +24,8 @@
         UIBarButtonItem* checkIn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"map-pin"] style:UIBarButtonItemStylePlain target:self action:@selector(pushCheckIn)];
         self.navigationItem.rightBarButtonItem = checkIn;
         
-        UIBarButtonItem *temporaryBarButtonItem=[[UIBarButtonItem alloc] init];
-		temporaryBarButtonItem.title=@"Back";
+        UIBarButtonItem *temporaryBarButtonItem = [[UIBarButtonItem alloc] init];
+		temporaryBarButtonItem.title = NSLocalizedString(@"Back", @"Back");
 		self.navigationItem.backBarButtonItem = temporaryBarButtonItem;
     }
     return self;

@@ -163,7 +163,7 @@
 		64EC34AC143EF12E0063BC4D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		64EC34AD143EF12E0063BC4D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8D4AA4BA147AB9C5003AF93D /* TDSCheckInPOSTTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSCheckInPOSTTableViewController.h; sourceTree = "<group>"; };
-		8D4AA4BB147AB9C5003AF93D /* TDSCheckInPOSTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSCheckInPOSTTableViewController.m; sourceTree = "<group>"; };
+		8D4AA4BB147AB9C5003AF93D /* TDSCheckInPOSTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TDSCheckInPOSTTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		8DA2AF351477DF8D00654F55 /* (null)_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "(null)_16.png"; sourceTree = "<group>"; };
 		8DA2AF361477DF8D00654F55 /* 0_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0_16.png; sourceTree = "<group>"; };
 		8DA2AF371477DF8D00654F55 /* 1_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1_16.png; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 		8DA2AF4C1477E08200654F55 /* TDSTrailDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrailDetailViewController.h; sourceTree = "<group>"; };
 		8DA2AF4D1477E08200654F55 /* TDSTrailDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrailDetailViewController.m; sourceTree = "<group>"; };
 		8DA2AF4E1477E08200654F55 /* TDSTrailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrailTableViewController.h; sourceTree = "<group>"; };
-		8DA2AF4F1477E08200654F55 /* TDSTrailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrailTableViewController.m; sourceTree = "<group>"; };
+		8DA2AF4F1477E08200654F55 /* TDSTrailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TDSTrailTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		8DA2AF501477E08200654F55 /* TDSUserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSUserDetailViewController.h; sourceTree = "<group>"; };
 		8DA2AF511477E08200654F55 /* TDSUserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSUserDetailViewController.m; sourceTree = "<group>"; };
 		8DA2AF521477E08200654F55 /* TDSUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSUserTableViewController.h; sourceTree = "<group>"; };
