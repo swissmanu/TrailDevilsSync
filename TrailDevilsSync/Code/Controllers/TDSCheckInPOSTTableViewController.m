@@ -25,8 +25,8 @@
     if (self) {
         // Custom initialization
         
-        UIBarButtonItem* checkIn = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save", @"Save") style:UIBarButtonItemStyleDone target:self action:@selector(pushCheckIn)];
-        self.navigationItem.rightBarButtonItem = checkIn;
+        UIBarButtonItem* saveBtn = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save", @"Save") style:UIBarButtonItemStyleDone target:self action:@selector(saveCheckIn)];
+        self.navigationItem.rightBarButtonItem = saveBtn;
         
         UIBarButtonItem *temporaryBarButtonItem = [[UIBarButtonItem alloc] init];
 		temporaryBarButtonItem.title = NSLocalizedString(@"Back", @"Back");
@@ -34,6 +34,49 @@
     }
     return self;
 }
+
+- (void)saveCheckIn {
+    if (!trail) {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" 
+                                                        message:@"Choose a trail!" 
+                                                       delegate:nil 
+                                              cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    } else if (!user) { 
+        
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" 
+                                                        message:@"An internal error occured!" 
+                                                       delegate:nil 
+                                              cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+         
+    } else {
+        TDSTrailCheckIn *checkInToPOST = [self createTrailCheckIn];
+        
+        //TODO: POST
+        RKObjectManager* objectManager = [RKObjectManager sharedManager];
+
+        [objectManager postObject:checkInToPOST delegate:nil block:^(RKObjectLoader * loader) {
+            loader.resourcePath = [NSString stringWithFormat:@"/trails/%i/checkins", [trail.trailId intValue]];
+        }];
+        
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
+}
+
+- (TDSTrailCheckIn*)createTrailCheckIn {
+    TDSTrailCheckIn *trailCheckIn = [TDSTrailCheckIn new];
+    
+    trailCheckIn.trailId = trail.trailId;
+    trailCheckIn.userId = user.userId;
+    trailCheckIn.isManualCheckin = [NSNumber numberWithBool:YES];
+    trailCheckIn.checkinDateInt = [NSNumber numberWithInt:(int)[[NSDate date] timeIntervalSince1970]];
+    
+    return trailCheckIn;
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -147,10 +190,16 @@
 {
     
     if (indexPath.section == 1) {
-        TDSTrailTableViewController *trailViewController = [[TDSTrailTableViewController alloc] initWithStyle:UITableViewStylePlain popToView:self];
+        TDSTrailTableViewController *trailViewController = [[TDSTrailTableViewController alloc] initWithStyle:UITableViewStylePlain target:self onTrailSelect:@selector(didSelectRowWithTrail:) showAccessoryType:NO];
         
         [self.navigationController pushViewController:trailViewController animated:YES];
     }
+}
+
+- (void)didSelectRowWithTrail:(TDSTrail*)selectedTrail {
+    [self setTrail:selectedTrail];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Setter

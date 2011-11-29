@@ -22,4 +22,7 @@
 @property (nonatomic, retain) TDSUser *user;
 @property (nonatomic, retain) TDSTrailCheckIn *checkInToPost;
 
+- (void)didSelectRowWithTrail:(TDSTrail*)selectedTrail;
+- (TDSTrailCheckIn*)createTrailCheckIn;
+
 @end
