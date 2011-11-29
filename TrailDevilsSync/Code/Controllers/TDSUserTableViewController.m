@@ -47,7 +47,8 @@
         
     [self loadObjectsFromDataStore];
     
-    [self loadData];
+    if ([fetchController.fetchedObjects count] <= 0)
+        [self loadData];
 }
 
 
