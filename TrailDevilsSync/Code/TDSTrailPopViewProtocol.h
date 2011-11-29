@@ -13,7 +13,8 @@
 @protocol TDSTrailPopViewProtocol <NSObject>
 
 @required
-@property (nonatomic, retain) TDSTrail *trail;
+@property (nonatomic, retain) TDSTrail *trail; 
 
+- (void)didSelectRowWithTrail:(TDSTrail*)selectedTrail;
 
 @end

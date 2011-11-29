@@ -13,21 +13,21 @@
 
 @implementation TDSTrailTableViewController
 
-@synthesize trails, fetchController, popView;
-
 static NSInteger UPDATE_TIME = 300;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
-    return [self initWithStyle:style popToView:nil];
+    return [self initWithStyle:style target:nil onTrailSelect:nil showAccessoryType:YES];
 }
 
-- (id)initWithStyle:(UITableViewStyle)style popToView:(id<TDSTrailPopViewProtocol>)viewOrNil {
-    
+- (id)initWithStyle:(UITableViewStyle)style target:(id)targetObject onTrailSelect:(SEL)selector showAccessoryType:(BOOL)showAccessory {
+
     self = [super initWithStyle:style];
     if (self) {
         trails = [NSArray alloc];
-        popView = viewOrNil;
+        target = targetObject;
+        onTrailSelectSelector = selector;
+        showAccessoryType = showAccessory; 
         
         self.title = NSLocalizedString(@"Trails", @"Trails View Controller title");
         self.tabBarItem.image = [UIImage imageNamed:@"map"];
@@ -56,8 +56,7 @@ static NSInteger UPDATE_TIME = 300;
 
     [self loadObjectsFromDataStore];
     
-    NSTimeInterval loadDataTimediff = [[[NSUserDefaults standardUserDefaults] objectForKey:@"TDSTrailLastUpdatedAt"] timeIntervalSinceNow];
-    if (fabs(loadDataTimediff) > UPDATE_TIME || !loadDataTimediff) 
+    if ([fetchController.fetchedObjects count] <= 0)
         [self loadData];
 
 }
@@ -154,7 +153,9 @@ static NSInteger UPDATE_TIME = 300;
     
     cell.trail = curTrail;
     
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    if (showAccessoryType) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     
     return cell;
 }
@@ -165,17 +166,15 @@ static NSInteger UPDATE_TIME = 300;
 {
     // Navigation logic may go here. Create and push another view controller.
     
+    TDSTrail *curTrail = [fetchController objectAtIndexPath:indexPath];    
     
-    if (popView) {
-        popView.trail = [fetchController objectAtIndexPath:indexPath];
-        
-        [self.navigationController popViewControllerAnimated:YES];
+    if (target != nil || onTrailSelectSelector != nil) {   
+        [target performSelector:onTrailSelectSelector withObject:curTrail];
     } else {
-    
         TDSTrailDetailViewController *detailViewController = [[TDSTrailDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
-        detailViewController.trail = [fetchController objectAtIndexPath:indexPath];
-     
-    
+        detailViewController.trail = curTrail;
+        
+        
         [self.navigationController pushViewController:detailViewController animated:YES];
     }
 }

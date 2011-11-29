@@ -17,14 +17,12 @@
 @interface TDSTrailTableViewController : UITableViewController <RKObjectLoaderDelegate> {
     NSArray *trails;
     NSFetchedResultsController *fetchController;
-    id<TDSTrailPopViewProtocol> popView;
+    id target;
+    SEL onTrailSelectSelector;
+    BOOL showAccessoryType;
 }
 
-@property (retain, atomic) NSArray *trails;
-@property (retain, atomic) NSFetchedResultsController *fetchController;
-@property (retain, nonatomic) id<TDSTrailPopViewProtocol> popView;
-
-- (id)initWithStyle:(UITableViewStyle)style popToView:(id<TDSTrailPopViewProtocol>)viewOrNil;
+- (id)initWithStyle:(UITableViewStyle)style target:(id)target onTrailSelect:(SEL)selector showAccessoryType:(BOOL)showAccessory;
 
 - (void)loadObjectsFromDataStore;
 - (void)loadData;
