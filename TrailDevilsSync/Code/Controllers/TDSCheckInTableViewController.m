@@ -82,7 +82,7 @@
 
 - (void)loadObjectsFromDataStoreWith:(NSPredicate*)predicate {
     NSFetchRequest* fetchRequest = [TDSTrailCheckIn fetchRequest];
-    NSSortDescriptor *sortCheckInsByDate = [NSSortDescriptor sortDescriptorWithKey:@"checkinDate" ascending:NO];
+    NSSortDescriptor *sortCheckInsByDate = [NSSortDescriptor sortDescriptorWithKey:@"checkinDateInt" ascending:NO];
     
     [fetchRequest setPredicate:predicate];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortCheckInsByDate, nil]];

@@ -126,7 +126,7 @@
     [checkinMapping mapKeyPathsToAttributes:
      @"Id", @"checkinId"
      , @"CreatedUnixTs", @"createdDate"
-     , @"CheckinUnixTs", @"checkinDate"
+     , @"CheckinUnixTs", @"checkinDateInt"
      , @"IsManualCheckin", @"isManualCheckin"
      , @"PosLatitude", @"posLatitude"
      , @"PosLongitude", @"posLongitude"

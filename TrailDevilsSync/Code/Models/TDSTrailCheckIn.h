@@ -15,7 +15,7 @@
 @interface TDSTrailCheckIn : TDSManagedObject
 
 @property (nonatomic, retain) NSNumber * checkinId;
-@property (nonatomic, retain) NSDate * checkinDate;
+@property (nonatomic, retain) NSNumber * checkinDateInt;
 @property (nonatomic, retain) NSNumber * isManualCheckin;
 @property (nonatomic, retain) NSNumber * posLatitude;
 @property (nonatomic, retain) NSNumber * posLongitude;
@@ -27,5 +27,6 @@
 
 @property (nonatomic, readonly) NSString * day;
 @property (nonatomic, retain) NSDateFormatter * dateFormatter;
+@property (nonatomic, readonly) NSDate * checkinDate;
 
 @end

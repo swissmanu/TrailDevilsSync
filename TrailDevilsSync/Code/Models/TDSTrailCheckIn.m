@@ -14,13 +14,13 @@
 @implementation TDSTrailCheckIn
 
 @dynamic checkinId;
-@dynamic checkinDate;
-@dynamic isManualCheckin;
+@synthesize checkinDateInt;
+@synthesize isManualCheckin;
 @dynamic posLatitude;
 @dynamic posLongitude;
 @dynamic posPrecision;
-@dynamic trailId;
-@dynamic userId;
+@synthesize trailId;
+@synthesize userId;
 @dynamic user;
 @dynamic trail;
 
@@ -37,8 +37,12 @@
 }
 
 - (NSString *)day {
-    NSDate *date = self.checkinDate;
+    NSDate *date = [self checkinDate];
     return [self.dateFormatter stringFromDate:date];
+}
+
+- (NSDate *)checkinDate {
+    return [NSDate dateWithTimeIntervalSince1970:[[self checkinDateInt] doubleValue]];
 }
 
 @end

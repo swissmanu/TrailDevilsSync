@@ -338,8 +338,6 @@
 		8DA2AF491477E08200654F55 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8DA2AF4A1477E08200654F55 /* TDSCheckInTableViewController.h */,
-				8DA2AF4B1477E08200654F55 /* TDSCheckInTableViewController.m */,
 				8DA2AF4C1477E08200654F55 /* TDSTrailDetailViewController.h */,
 				8DA2AF4D1477E08200654F55 /* TDSTrailDetailViewController.m */,
 				8DA2AF4E1477E08200654F55 /* TDSTrailTableViewController.h */,
@@ -348,6 +346,8 @@
 				8DA2AF511477E08200654F55 /* TDSUserDetailViewController.m */,
 				8DA2AF521477E08200654F55 /* TDSUserTableViewController.h */,
 				8DA2AF531477E08200654F55 /* TDSUserTableViewController.m */,
+				8DA2AF4A1477E08200654F55 /* TDSCheckInTableViewController.h */,
+				8DA2AF4B1477E08200654F55 /* TDSCheckInTableViewController.m */,
 				8D4AA4BA147AB9C5003AF93D /* TDSCheckInPOSTTableViewController.h */,
 				8D4AA4BB147AB9C5003AF93D /* TDSCheckInPOSTTableViewController.m */,
 			);
