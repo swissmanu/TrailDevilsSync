@@ -25,6 +25,8 @@
 		64EC34B0143EF12E0063BC4D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC34AC143EF12E0063BC4D /* MobileCoreServices.framework */; };
 		64EC34B1143EF12E0063BC4D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC34AD143EF12E0063BC4D /* SystemConfiguration.framework */; };
 		8D4AA4BC147AB9C5003AF93D /* TDSCheckInPOSTTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D4AA4BB147AB9C5003AF93D /* TDSCheckInPOSTTableViewController.m */; };
+		8D69F9EF148D6C110030F14A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D69F9EE148D6C110030F14A /* icon.png */; };
+		8D69F9F1148D6C130030F14A /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D69F9F0148D6C130030F14A /* icon@2x.png */; };
 		8DA2AF3E1477DF8D00654F55 /* (null)_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DA2AF351477DF8D00654F55 /* (null)_16.png */; };
 		8DA2AF3F1477DF8D00654F55 /* 0_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DA2AF361477DF8D00654F55 /* 0_16.png */; };
 		8DA2AF401477DF8D00654F55 /* 1_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DA2AF371477DF8D00654F55 /* 1_16.png */; };
@@ -163,6 +165,8 @@
 		64EC34AD143EF12E0063BC4D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8D4AA4BA147AB9C5003AF93D /* TDSCheckInPOSTTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSCheckInPOSTTableViewController.h; sourceTree = "<group>"; };
 		8D4AA4BB147AB9C5003AF93D /* TDSCheckInPOSTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TDSCheckInPOSTTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		8D69F9EE148D6C110030F14A /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		8D69F9F0148D6C130030F14A /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		8DA2AF351477DF8D00654F55 /* (null)_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "(null)_16.png"; sourceTree = "<group>"; };
 		8DA2AF361477DF8D00654F55 /* 0_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0_16.png; sourceTree = "<group>"; };
 		8DA2AF371477DF8D00654F55 /* 1_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1_16.png; sourceTree = "<group>"; };
@@ -318,6 +322,8 @@
 		8DA2AF341477DF8D00654F55 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8D69F9F0148D6C130030F14A /* icon@2x.png */,
+				8D69F9EE148D6C110030F14A /* icon.png */,
 				8DA2AF351477DF8D00654F55 /* (null)_16.png */,
 				8DA2AF361477DF8D00654F55 /* 0_16.png */,
 				8DA2AF371477DF8D00654F55 /* 1_16.png */,
@@ -550,6 +556,8 @@
 				8DA2AF461477DF8D00654F55 /* map@2x.png in Resources */,
 				8DA2AF841477E21900654F55 /* InfoPlist.strings in Resources */,
 				8DA2AF861477E21900654F55 /* TrailDevilsSync-Info.plist in Resources */,
+				8D69F9EF148D6C110030F14A /* icon.png in Resources */,
+				8D69F9F1148D6C130030F14A /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
