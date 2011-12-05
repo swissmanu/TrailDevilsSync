@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="TDSManagedObject" representedClassName="TDSManagedObject" syncable="YES">
-        <attribute name="createdDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="isNew" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
-        <attribute name="lastModifiedDate" optional="YES" attributeType="Date" syncable="YES"/>
-    </entity>
-    <entity name="TDSTrail" representedClassName="TDSTrail" parentEntity="TDSManagedObject" syncable="YES">
+    <entity name="TDSTrail" representedClassName="TDSTrail" syncable="YES">
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="countryId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="createdDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="favorits" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="gmapX" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -18,6 +14,7 @@
         <attribute name="isCommercial" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isOpen" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="journey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastModifiedDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="nextCity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
@@ -26,10 +23,12 @@
         <relationship name="checkins" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TDSTrailCheckIn" inverseName="trail" inverseEntity="TDSTrailCheckIn" syncable="YES"/>
         <relationship name="trailTypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TDSTrailType" inverseName="trails" inverseEntity="TDSTrailType" syncable="YES"/>
     </entity>
-    <entity name="TDSTrailCheckIn" representedClassName="TDSTrailCheckIn" parentEntity="TDSManagedObject" syncable="YES">
-        <attribute name="checkinDate" optional="YES" attributeType="Date" syncable="YES"/>
+    <entity name="TDSTrailCheckIn" representedClassName="TDSTrailCheckIn" syncable="YES">
+        <attribute name="checkinDateInt" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="checkinId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="createdDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="isManualCheckin" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="lastModifiedDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="posLatitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="posLongitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="posPrecision" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -38,23 +37,26 @@
         <relationship name="trail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TDSTrail" inverseName="checkins" inverseEntity="TDSTrail" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TDSUser" inverseName="checkins" inverseEntity="TDSUser" syncable="YES"/>
     </entity>
-    <entity name="TDSTrailType" representedClassName="TDSTrailType" parentEntity="TDSManagedObject" syncable="YES">
+    <entity name="TDSTrailType" representedClassName="TDSTrailType" syncable="YES">
+        <attribute name="createdDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastModifiedDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="trailTypeId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="trails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TDSTrail" inverseName="trailTypes" inverseEntity="TDSTrail" syncable="YES"/>
     </entity>
-    <entity name="TDSUser" representedClassName="TDSUser" parentEntity="TDSManagedObject" syncable="YES">
+    <entity name="TDSUser" representedClassName="TDSUser" syncable="YES">
         <attribute name="countryId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="createdDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastModifiedDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="checkins" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TDSTrailCheckIn" inverseName="user" inverseEntity="TDSTrailCheckIn" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TDSManagedObject" positionX="160" positionY="192" width="128" height="90"/>
         <element name="TDSTrail" positionX="160" positionY="192" width="128" height="315"/>
+        <element name="TDSTrailCheckIn" positionX="160" positionY="192" width="128" height="195"/>
         <element name="TDSTrailType" positionX="160" positionY="192" width="128" height="105"/>
         <element name="TDSUser" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="TDSTrailCheckIn" positionX="160" positionY="192" width="128" height="195"/>
     </elements>
 </model>

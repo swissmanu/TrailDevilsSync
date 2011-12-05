@@ -39,17 +39,16 @@
 		8DA2AF671477E08200654F55 /* TDSTrailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2AF4F1477E08200654F55 /* TDSTrailTableViewController.m */; };
 		8DA2AF681477E08200654F55 /* TDSUserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2AF511477E08200654F55 /* TDSUserDetailViewController.m */; };
 		8DA2AF691477E08200654F55 /* TDSUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2AF531477E08200654F55 /* TDSUserTableViewController.m */; };
-		8DA2AF6A1477E08200654F55 /* TDSManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2AF571477E08200654F55 /* TDSManagedObject.m */; };
-		8DA2AF6B1477E08200654F55 /* TDSTrail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2AF591477E08200654F55 /* TDSTrail.m */; };
 		8DA2AF6C1477E08200654F55 /* TDSTrailCheckIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2AF5B1477E08200654F55 /* TDSTrailCheckIn.m */; };
-		8DA2AF6D1477E08200654F55 /* TDSTrailType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2AF5D1477E08200654F55 /* TDSTrailType.m */; };
-		8DA2AF6E1477E08200654F55 /* TDSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2AF5F1477E08200654F55 /* TDSUser.m */; };
 		8DA2AF6F1477E08200654F55 /* TDSTrailIsOpenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2AF621477E08200654F55 /* TDSTrailIsOpenView.m */; };
 		8DA2AF701477E08200654F55 /* TDSTrailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2AF641477E08200654F55 /* TDSTrailViewCell.m */; };
 		8DA2AF741477E0CA00654F55 /* TrailDevilsSync.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2AF721477E0CA00654F55 /* TrailDevilsSync.xcdatamodeld */; };
 		8DA2AF841477E21900654F55 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DA2AF7F1477E21900654F55 /* InfoPlist.strings */; };
 		8DA2AF851477E21900654F55 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2AF811477E21900654F55 /* main.m */; };
 		8DA2AF861477E21900654F55 /* TrailDevilsSync-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DA2AF821477E21900654F55 /* TrailDevilsSync-Info.plist */; };
+		8DA94EB0148571D80022EB09 /* TDSTrail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA94EAF148571D80022EB09 /* TDSTrail.m */; };
+		8DA94EB3148572CD0022EB09 /* TDSTrailType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA94EB2148572CD0022EB09 /* TDSTrailType.m */; };
+		8DA94EB6148572EA0022EB09 /* TDSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA94EB5148572EA0022EB09 /* TDSUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,16 +182,8 @@
 		8DA2AF511477E08200654F55 /* TDSUserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSUserDetailViewController.m; sourceTree = "<group>"; };
 		8DA2AF521477E08200654F55 /* TDSUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSUserTableViewController.h; sourceTree = "<group>"; };
 		8DA2AF531477E08200654F55 /* TDSUserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSUserTableViewController.m; sourceTree = "<group>"; };
-		8DA2AF561477E08200654F55 /* TDSManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSManagedObject.h; sourceTree = "<group>"; };
-		8DA2AF571477E08200654F55 /* TDSManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSManagedObject.m; sourceTree = "<group>"; };
-		8DA2AF581477E08200654F55 /* TDSTrail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrail.h; sourceTree = "<group>"; };
-		8DA2AF591477E08200654F55 /* TDSTrail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrail.m; sourceTree = "<group>"; };
 		8DA2AF5A1477E08200654F55 /* TDSTrailCheckIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrailCheckIn.h; sourceTree = "<group>"; };
 		8DA2AF5B1477E08200654F55 /* TDSTrailCheckIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrailCheckIn.m; sourceTree = "<group>"; };
-		8DA2AF5C1477E08200654F55 /* TDSTrailType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrailType.h; sourceTree = "<group>"; };
-		8DA2AF5D1477E08200654F55 /* TDSTrailType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrailType.m; sourceTree = "<group>"; };
-		8DA2AF5E1477E08200654F55 /* TDSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSUser.h; sourceTree = "<group>"; };
-		8DA2AF5F1477E08200654F55 /* TDSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSUser.m; sourceTree = "<group>"; };
 		8DA2AF611477E08200654F55 /* TDSTrailIsOpenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrailIsOpenView.h; sourceTree = "<group>"; };
 		8DA2AF621477E08200654F55 /* TDSTrailIsOpenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrailIsOpenView.m; sourceTree = "<group>"; };
 		8DA2AF631477E08200654F55 /* TDSTrailViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrailViewCell.h; sourceTree = "<group>"; };
@@ -203,6 +194,12 @@
 		8DA2AF821477E21900654F55 /* TrailDevilsSync-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TrailDevilsSync-Info.plist"; sourceTree = "<group>"; };
 		8DA2AF831477E21900654F55 /* TrailDevilsSync-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TrailDevilsSync-Prefix.pch"; sourceTree = "<group>"; };
 		8DA47D2C147C42BA0011D55D /* TDSTrailPopViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDSTrailPopViewProtocol.h; path = Code/TDSTrailPopViewProtocol.h; sourceTree = "<group>"; };
+		8DA94EAE148571D80022EB09 /* TDSTrail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrail.h; sourceTree = "<group>"; };
+		8DA94EAF148571D80022EB09 /* TDSTrail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrail.m; sourceTree = "<group>"; };
+		8DA94EB1148572CD0022EB09 /* TDSTrailType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrailType.h; sourceTree = "<group>"; };
+		8DA94EB2148572CD0022EB09 /* TDSTrailType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrailType.m; sourceTree = "<group>"; };
+		8DA94EB4148572EA0022EB09 /* TDSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSUser.h; sourceTree = "<group>"; };
+		8DA94EB5148572EA0022EB09 /* TDSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,16 +355,14 @@
 		8DA2AF551477E08200654F55 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8DA2AF561477E08200654F55 /* TDSManagedObject.h */,
-				8DA2AF571477E08200654F55 /* TDSManagedObject.m */,
-				8DA2AF581477E08200654F55 /* TDSTrail.h */,
-				8DA2AF591477E08200654F55 /* TDSTrail.m */,
+				8DA94EB4148572EA0022EB09 /* TDSUser.h */,
+				8DA94EB5148572EA0022EB09 /* TDSUser.m */,
+				8DA94EB1148572CD0022EB09 /* TDSTrailType.h */,
+				8DA94EB2148572CD0022EB09 /* TDSTrailType.m */,
+				8DA94EAE148571D80022EB09 /* TDSTrail.h */,
+				8DA94EAF148571D80022EB09 /* TDSTrail.m */,
 				8DA2AF5A1477E08200654F55 /* TDSTrailCheckIn.h */,
 				8DA2AF5B1477E08200654F55 /* TDSTrailCheckIn.m */,
-				8DA2AF5C1477E08200654F55 /* TDSTrailType.h */,
-				8DA2AF5D1477E08200654F55 /* TDSTrailType.m */,
-				8DA2AF5E1477E08200654F55 /* TDSUser.h */,
-				8DA2AF5F1477E08200654F55 /* TDSUser.m */,
 			);
 			name = Models;
 			path = Code/Models;
@@ -572,16 +567,15 @@
 				8DA2AF671477E08200654F55 /* TDSTrailTableViewController.m in Sources */,
 				8DA2AF681477E08200654F55 /* TDSUserDetailViewController.m in Sources */,
 				8DA2AF691477E08200654F55 /* TDSUserTableViewController.m in Sources */,
-				8DA2AF6A1477E08200654F55 /* TDSManagedObject.m in Sources */,
-				8DA2AF6B1477E08200654F55 /* TDSTrail.m in Sources */,
 				8DA2AF6C1477E08200654F55 /* TDSTrailCheckIn.m in Sources */,
-				8DA2AF6D1477E08200654F55 /* TDSTrailType.m in Sources */,
-				8DA2AF6E1477E08200654F55 /* TDSUser.m in Sources */,
 				8DA2AF6F1477E08200654F55 /* TDSTrailIsOpenView.m in Sources */,
 				8DA2AF701477E08200654F55 /* TDSTrailViewCell.m in Sources */,
 				8DA2AF741477E0CA00654F55 /* TrailDevilsSync.xcdatamodeld in Sources */,
 				8DA2AF851477E21900654F55 /* main.m in Sources */,
 				8D4AA4BC147AB9C5003AF93D /* TDSCheckInPOSTTableViewController.m in Sources */,
+				8DA94EB0148571D80022EB09 /* TDSTrail.m in Sources */,
+				8DA94EB3148572CD0022EB09 /* TDSTrailType.m in Sources */,
+				8DA94EB6148572EA0022EB09 /* TDSUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

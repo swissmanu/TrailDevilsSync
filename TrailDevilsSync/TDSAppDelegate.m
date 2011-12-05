@@ -38,7 +38,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://152.96.80.18:8080/api"];
+    RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://152.96.80.18:8080/api"]; 
     
     objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TDSData.sqlite"];
     
@@ -135,6 +135,8 @@
      , @"UserId", @"userId"
      , nil];
     [objectManager.mappingProvider setMapping:checkinMapping forKeyPath:@"checkin"];
+    [objectManager.mappingProvider setSerializationMapping:[checkinMapping inverseMapping] forClass:[TDSTrailCheckIn class]];
+
     
     [objectManager.router routeClass:[TDSTrailCheckIn class] toResourcePath:@"/contacts/:contactID"];
     [objectManager.router routeClass:[TDSTrailCheckIn class] toResourcePath:@"/contacts" forMethod:RKRequestMethodPOST];
@@ -153,6 +155,7 @@
 #ifdef DEBUG
     RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelDebug);
     RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
+    RKLogConfigureByName("RestKit/Network/Queue", RKLogLevelTrace)
     RKLogSetAppLoggingLevel(RKLogLevelDebug);
     
     NSLog(@"%i", [[TDSTrail allObjects] count]);
