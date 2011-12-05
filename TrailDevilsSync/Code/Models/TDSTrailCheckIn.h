@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "TDSManagedObject.h"
+
+//RestKit
+#import <RestKit/RestKit.h>
+#import <RestKit/CoreData/CoreData.h>
 
 @class TDSTrail, TDSUser;
 
-@interface TDSTrailCheckIn : TDSManagedObject
+@interface TDSTrailCheckIn : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * checkinId;
 @property (nonatomic, retain) NSNumber * checkinDateInt;
@@ -22,6 +25,8 @@
 @property (nonatomic, retain) NSNumber * posPrecision;
 @property (nonatomic, retain) NSNumber * trailId;
 @property (nonatomic, retain) NSNumber * userId;
+@property (nonatomic, retain) NSDate * createdDate;
+@property (nonatomic, retain) NSDate * lastModifiedDate;
 @property (nonatomic, retain) TDSUser *user;
 @property (nonatomic, retain) TDSTrail *trail;
 

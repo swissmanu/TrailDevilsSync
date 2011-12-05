@@ -2,17 +2,20 @@
 //  TDSTrail.h
 //  TrailDevilsSync
 //
-//  Created by Alexandre Joly on 18.11.11.
+//  Created by Alexandre Joly on 29.11.11.
 //  Copyright (c) 2011 Bühler AG Uzwil. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "TDSManagedObject.h"
+
+//RestKit
+#import <RestKit/RestKit.h>
+#import <RestKit/CoreData/CoreData.h>
 
 @class TDSTrailCheckIn, TDSTrailType;
 
-@interface TDSTrail : TDSManagedObject
+@interface TDSTrail : NSManagedObject
 
 @property (nonatomic, retain) NSString * country;
 @property (nonatomic, retain) NSNumber * countryId;
@@ -31,8 +34,10 @@
 @property (nonatomic, retain) NSString * state;
 @property (nonatomic, retain) NSNumber * trailId;
 @property (nonatomic, retain) NSString * url;
-@property (nonatomic, retain) NSSet *trailTypes;
+@property (nonatomic, retain) NSDate * createdDate;
+@property (nonatomic, retain) NSDate * lastModifiedDate;
 @property (nonatomic, retain) NSSet *checkins;
+@property (nonatomic, retain) NSSet *trailTypes;
 
 - (UIImage *)isOpenImageForTrailCellView;
 
@@ -40,14 +45,14 @@
 
 @interface TDSTrail (CoreDataGeneratedAccessors)
 
-- (void)addTrailTypesObject:(TDSTrailType *)value;
-- (void)removeTrailTypesObject:(TDSTrailType *)value;
-- (void)addTrailTypes:(NSSet *)values;
-- (void)removeTrailTypes:(NSSet *)values;
-
 - (void)addCheckinsObject:(TDSTrailCheckIn *)value;
 - (void)removeCheckinsObject:(TDSTrailCheckIn *)value;
 - (void)addCheckins:(NSSet *)values;
 - (void)removeCheckins:(NSSet *)values;
+
+- (void)addTrailTypesObject:(TDSTrailType *)value;
+- (void)removeTrailTypesObject:(TDSTrailType *)value;
+- (void)addTrailTypes:(NSSet *)values;
+- (void)removeTrailTypes:(NSSet *)values;
 
 @end

@@ -14,13 +14,15 @@
 @implementation TDSTrailCheckIn
 
 @dynamic checkinId;
-@synthesize checkinDateInt;
-@synthesize isManualCheckin;
+@dynamic checkinDateInt;
+@dynamic isManualCheckin;
 @dynamic posLatitude;
 @dynamic posLongitude;
 @dynamic posPrecision;
-@synthesize trailId;
-@synthesize userId;
+@dynamic trailId;
+@dynamic userId;
+@dynamic createdDate;
+@dynamic lastModifiedDate;
 @dynamic user;
 @dynamic trail;
 
