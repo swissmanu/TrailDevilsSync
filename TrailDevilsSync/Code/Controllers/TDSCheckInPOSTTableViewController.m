@@ -53,7 +53,6 @@
     } else {
         TDSTrailCheckIn *checkInToPOST = [self createTrailCheckIn];
         
-        //TODO: POST
         RKObjectManager* objectManager = [RKObjectManager sharedManager];
 
         [objectManager postObject:checkInToPOST delegate:nil block:^(RKObjectLoader * loader) {
@@ -67,7 +66,7 @@
 }
 
 - (TDSTrailCheckIn*)createTrailCheckIn {
-    TDSTrailCheckIn *trailCheckIn = [TDSTrailCheckIn new];
+    TDSTrailCheckIn *trailCheckIn = [TDSTrailCheckIn object];
     
     trailCheckIn.trailId = trail.trailId;
     trailCheckIn.userId = user.userId;
