@@ -15,6 +15,12 @@
 #import "TDSTrailTableViewController.h"
 
 
+@interface TDSCheckInPOSTTableViewController()
+
+- (BOOL)validateCheckinData;
+
+@end
+
 @implementation TDSCheckInPOSTTableViewController
 
 @synthesize user, trail, checkInToPost;
@@ -36,34 +42,51 @@
 }
 
 - (void)saveCheckIn {
+    
+    if ([self validateCheckinData]) {
+        TDSTrailCheckIn *checkInToPOST = [self createTrailCheckIn];
+        
+        RKObjectManager* objectManager = [RKObjectManager sharedManager];
+        
+        [objectManager postObject:checkInToPOST delegate:nil block:^(RKObjectLoader * loader) {
+            loader.resourcePath = [NSString stringWithFormat:@"/trails/%i/checkins", [trail.trailId intValue]];
+        }];
+        
+        
+        //TODO: check
+        [checkInToPOST deleteEntity];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
+}
+
+
+- (BOOL)validateCheckinData {
     if (!trail) {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" 
                                                         message:@"Choose a trail!" 
                                                        delegate:nil 
                                               cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-    } else if (!user) { 
         
+        return NO;
+    
+    }
+    
+    if (!user) { 
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" 
                                                         message:@"An internal error occured!" 
                                                        delegate:nil 
                                               cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-         
-    } else {
-        TDSTrailCheckIn *checkInToPOST = [self createTrailCheckIn];
         
-        RKObjectManager* objectManager = [RKObjectManager sharedManager];
-
-        [objectManager postObject:checkInToPOST delegate:nil block:^(RKObjectLoader * loader) {
-            loader.resourcePath = [NSString stringWithFormat:@"/trails/%i/checkins", [trail.trailId intValue]];
-        }];
-        
-        
-        [self.navigationController popViewControllerAnimated:YES];
-    }
+        return NO;
+    } 
     
+    return YES;
 }
+
 
 - (TDSTrailCheckIn*)createTrailCheckIn {
     TDSTrailCheckIn *trailCheckIn = [TDSTrailCheckIn object];

@@ -19,6 +19,7 @@
 #import "TDSUser.h"
 #import "TDSTrailTableViewController.h"
 #import "TDSUserTableViewController.h"
+#import "TDSRestKitConfigManager.h"
 
 @interface TDSAppDelegate()
 
@@ -38,128 +39,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://152.96.80.18:8080/api"]; 
-    
-    objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TDSData.sqlite"];
-    
-    [objectManager.client setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    
-    
-    objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
-    
-    
-    /****** T R A I L T Y P E ******/
-    
-    RKManagedObjectMapping* trailTypeMapping = [RKManagedObjectMapping mappingForClass:[TDSTrailType class]];
-    trailTypeMapping.primaryKeyAttribute = @"trailTypeId";
-    trailTypeMapping.setDefaultValueForMissingAttributes = YES;
-    [trailTypeMapping mapKeyPathsToAttributes:
-     @"Id",@"trailTypeId"
-     ,@"Name",@"name"
-     ,@"Description",@"desc"
-     ,nil];
-    [objectManager.mappingProvider setMapping:trailTypeMapping forKeyPath:@"TrailType"];
-    
-    [objectManager.router routeClass:[TDSTrailType class] 
-                      toResourcePath:@"trails/types" 
-                           forMethod:RKRequestMethodGET];
-    
-    /****** T R A I L ******/
-    
-    RKManagedObjectMapping* trailMapping = [RKManagedObjectMapping mappingForClass:[TDSTrail class]];
-    trailMapping.primaryKeyAttribute = @"trailId";
-    trailMapping.setDefaultValueForMissingAttributes = YES;
-    [trailMapping mapKeyPathsToAttributes:
-     @"Country",@"country"
-     ,@"CountryId",@"countryId"
-     ,@"CreatedDate",@"createdDate"
-     ,@"Desc",@"desc"
-     ,@"Favorits",@"favorits"
-     ,@"GmapX",@"gmapX"
-     ,@"GmapY",@"gmapY"
-     ,@"ImageUrl120",@"imageUrl120"
-     ,@"ImageUrl800",@"imageUrl800"
-     ,@"Info",@"info"
-     ,@"IsCommercial",@"isCommercial"
-     ,@"IsOpen",@"isOpen"
-     ,@"Journey",@"journey"
-     ,@"Name", @"name"
-     ,@"NextCity",@"nextCity"
-     ,@"State",@"state"
-     ,@"Url",@"url"
-     ,@"Id",@"trailId"
-     ,nil];
-    //[objectManager.mappingProvider registerMapping:trailMapping withRootKeyPath:@"trail"];
-    [objectManager.mappingProvider setMapping:trailMapping forKeyPath:@"trail"];
-    
-    [trailMapping mapRelationship:@"TrailType" withMapping:trailTypeMapping];
-    
-    [objectManager.router routeClass:[TDSTrail class]
-                      toResourcePath:@"/trails"
-                           forMethod:RKRequestMethodGET];
-    
-    
-    /****** U S E R ******/
-    
-    RKManagedObjectMapping* userMapping = [RKManagedObjectMapping mappingForClass:[TDSUser class]];
-    userMapping.primaryKeyAttribute = @"userId";
-    userMapping.setDefaultValueForMissingAttributes = YES;
-    [userMapping mapKeyPathsToAttributes:
-     @"Id", @"userId"
-     ,@"CreatedUnixTs", @"createdDate"
-     ,@"ModifiedUnixTs", @"lastModifiedDate"
-     ,@"Username", @"username"
-     ,@"CountryId", @"countryId" 
-     , nil];
-    [objectManager.mappingProvider setMapping:userMapping forKeyPath:@"user"];
-    
-    
-    [objectManager.router routeClass:[TDSUser class]
-                      toResourcePath:@"/users"
-                           forMethod:RKRequestMethodGET];
-    
-    /****** C H E C K  I N ******/
-    
-    RKManagedObjectMapping* checkinMapping = [RKManagedObjectMapping mappingForClass:[TDSTrailCheckIn class]];
-    checkinMapping.primaryKeyAttribute = @"checkinId";
-    checkinMapping.setDefaultValueForMissingAttributes = YES;
-    [checkinMapping mapKeyPathsToAttributes:
-     @"Id", @"checkinId"
-     , @"CreatedUnixTs", @"createdDate"
-     , @"CheckinUnixTs", @"checkinDateInt"
-     , @"IsManualCheckin", @"isManualCheckin"
-     , @"PosLatitude", @"posLatitude"
-     , @"PosLongitude", @"posLongitude"
-     , @"PosPrecision", @"posPrecision"
-     , @"TrailId", @"trailId"
-     , @"UserId", @"userId"
-     , nil];
-    [objectManager.mappingProvider setMapping:checkinMapping forKeyPath:@"checkin"];
-    [objectManager.mappingProvider setSerializationMapping:[checkinMapping inverseMapping] forClass:[TDSTrailCheckIn class]];
-
-    
-    [objectManager.router routeClass:[TDSTrailCheckIn class] toResourcePath:@"/contacts/:contactID"];
-    [objectManager.router routeClass:[TDSTrailCheckIn class] toResourcePath:@"/contacts" forMethod:RKRequestMethodPOST];
-    
-    //TODO: relationship
-    
-    //, @"CreatedUnixTs":1321448351,
-    //, @"DeletedDate":null,
-    //, @"DeletedUnixTs":null,
-    //, @"ModifiedDate":null,
-    //, @"ModifiedUnixTs":null,
-    //, @"CheckinUnixTs":1269089026,
-
-    
-    
-#ifdef DEBUG
-    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelDebug);
-    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
-    RKLogConfigureByName("RestKit/Network/Queue", RKLogLevelTrace)
-    RKLogSetAppLoggingLevel(RKLogLevelDebug);
-    
-    NSLog(@"%i", [[TDSTrail allObjects] count]);
-#endif
+    TDSRestKitConfigManager *configManager = [TDSRestKitConfigManager configManager];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
