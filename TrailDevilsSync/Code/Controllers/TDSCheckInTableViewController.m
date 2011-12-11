@@ -161,7 +161,7 @@
         curUser = user;
         curTrail = [TDSTrail findFirstByAttribute:@"trailId" withValue:curCheckIn.trailId];
         
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ - %d", [curTrail name], [[curCheckIn checkinId] intValue]];
+        cell.textLabel.text = [curTrail name];
         
     } else if (trail) {
         curTrail = trail;
