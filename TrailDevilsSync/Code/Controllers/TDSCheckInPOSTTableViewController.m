@@ -51,6 +51,7 @@
         
         [objectManager postObject:checkInToPOST delegate:self block:^(RKObjectLoader * loader) {
             loader.resourcePath = [NSString stringWithFormat:@"/trails/%i/checkins", [trail.trailId intValue]];
+            loader.objectMapping = [objectManager.mappingProvider objectMappingForClass:[TDSTrailCheckIn class]];
         }];
         
         [self showSavingView];
