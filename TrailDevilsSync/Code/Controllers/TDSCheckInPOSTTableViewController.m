@@ -18,6 +18,7 @@
 @interface TDSCheckInPOSTTableViewController()
 
 - (BOOL)validateCheckinData;
+- (void)showSavingView;
 
 @end
 
@@ -48,18 +49,32 @@
         
         RKObjectManager* objectManager = [RKObjectManager sharedManager];
         
-        [objectManager postObject:checkInToPOST delegate:nil block:^(RKObjectLoader * loader) {
+        [objectManager postObject:checkInToPOST delegate:self block:^(RKObjectLoader * loader) {
             loader.resourcePath = [NSString stringWithFormat:@"/trails/%i/checkins", [trail.trailId intValue]];
         }];
         
-        
-        //TODO: check
-        //[checkInToPOST deleteEntity];
-        
-        [self.navigationController popViewControllerAnimated:YES];
+        [self showSavingView];
     }
     
 }
+
+-(void)showSavingView {
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    
+    // Add HUD to screen
+    [self.navigationController.view addSubview:HUD];
+    
+    // Regisete for HUD callbacks so we can remove it from the window at the right time
+    HUD.delegate = self;
+    
+    HUD.labelText = @"Saving";
+    
+    // Show the HUD while the provided method executes in a new thread
+    [HUD showUsingAnimation:YES];
+    
+}
+
+
 
 
 - (BOOL)validateCheckinData {
@@ -223,6 +238,34 @@
     
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+#pragma mark MBProgressHUDDelegate methods
+
+- (void)hudWasHidden {
+    // Remove HUD from screen when the HUD was hidded
+    [HUD removeFromSuperview];
+}
+
+#pragma mark RKObjectLoaderDelegate methods
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+    [HUD hideUsingAnimation:YES];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
+    [HUD hideUsingAnimation:YES];
+    
+	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" 
+                                                    message:[error localizedDescription] 
+                                                   delegate:nil 
+                                          cancelButtonTitle:@"OK" otherButtonTitles:nil];
+	[alert show];
+	NSLog(@"Hit error: %@", error);
+}
+
 
 #pragma mark - Setter
 

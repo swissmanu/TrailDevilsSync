@@ -10,13 +10,19 @@
 
 #import "TDSTrailPopViewProtocol.h"
 
+//
+#import "MBProgressHUD.h"
+
+
 @class TDSUser;
 @class TDSTrail;
 @class TDSTrailCheckIn;
 
-@interface TDSCheckInPOSTTableViewController : UITableViewController <TDSTrailPopViewProtocol> {
+@interface TDSCheckInPOSTTableViewController : UITableViewController <TDSTrailPopViewProtocol, RKObjectLoaderDelegate, MBProgressHUDDelegate> {
     TDSUser *user;
     TDSTrailCheckIn *checkInToPost;
+    MBProgressHUD *HUD;
+
 }
 
 @property (nonatomic, retain) TDSUser *user;
