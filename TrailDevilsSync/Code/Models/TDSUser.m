@@ -19,8 +19,8 @@
 @dynamic lastModifiedDate;
 @dynamic checkins;
 
-- (NSString *)firstUsernameChar {
-    return [[self.username substringToIndex:1] uppercaseString];
+- (NSString *)firstUsernameChar { 
+    return [self.username substringToIndex:1];
 }
 
 @end
