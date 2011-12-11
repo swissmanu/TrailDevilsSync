@@ -12,14 +12,10 @@
 
 @implementation TDSUserTableViewController
 
-@synthesize users, fetchController;
-
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
-    if (self) {
-        users = [NSArray alloc];
-        
+    if (self) {     
         self.title = NSLocalizedString(@"Users", @"Users View Controller title");
         self.tabBarItem.image = [UIImage imageNamed:@"group"];
         
@@ -53,19 +49,19 @@
 
 
 - (void)loadObjectsFromDataStore {
-    users = nil;    
-    
+   
     NSFetchRequest* fetchRequest = [TDSUser fetchRequest];
     NSSortDescriptor *sortUsersByUsername = [NSSortDescriptor sortDescriptorWithKey:@"username" ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortUsersByUsername, nil]];
     
-    fetchController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[TDSUser managedObjectContext] sectionNameKeyPath:nil cacheName:nil];
+    fetchController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[TDSUser managedObjectContext] sectionNameKeyPath:@"firstUsernameChar" cacheName:nil];
+    fetchController.delegate = self;
     
     NSError *error;
-    [fetchController performFetch:&error];
+    if (![fetchController performFetch:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);        
+    }
     
-    users = [TDSUser objectsWithFetchRequest:fetchRequest];
-
 }
 
 - (void)loadData {
@@ -124,6 +120,19 @@
     return [[[fetchController sections] objectAtIndex:section] numberOfObjects];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [[[fetchController sections] objectAtIndex:section] name];
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    TDSUser* curUser = (TDSUser*)[fetchController objectAtIndexPath:indexPath];
+    
+    cell.textLabel.text = [curUser username];
+    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -133,12 +142,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    TDSUser* curUser = (TDSUser*)[fetchController objectAtIndexPath:indexPath];
-    
     // Configure the cell...
-    cell.textLabel.text = [curUser username];
-        
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
@@ -157,8 +162,6 @@
 #pragma mark RKObjectLoaderDelegate methods
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
-	[self loadObjectsFromDataStore];
-	[self.tableView reloadData];
     
 }
 
@@ -170,5 +173,67 @@
 	[alert show];
 	NSLog(@"Hit error: %@", error);
 }
+
+#pragma mark NSFetchedResultsControllerDelegate methods
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView beginUpdates];
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    UITableView *tableView = self.tableView;
+    
+    switch(type) {
+            
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            [self configureCell:[tableView cellForRowAtIndexPath:indexPath]
+                    atIndexPath:indexPath];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView endUpdates];
+}
+
 
 @end

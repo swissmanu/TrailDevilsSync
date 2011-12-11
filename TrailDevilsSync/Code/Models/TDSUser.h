@@ -23,6 +23,9 @@
 @property (nonatomic, retain) NSDate * createdDate;
 @property (nonatomic, retain) NSDate * lastModifiedDate;
 @property (nonatomic, retain) NSSet *checkins;
+
+- (NSString *)firstUsernameChar;
+
 @end
 
 @interface TDSUser (CoreDataGeneratedAccessors)

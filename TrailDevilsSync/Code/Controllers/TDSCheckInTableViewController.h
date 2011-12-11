@@ -14,7 +14,7 @@
 @class TDSUser;
 @class TDSTrail;
 
-@interface TDSCheckInTableViewController : UITableViewController <RKObjectLoaderDelegate> {
+@interface TDSCheckInTableViewController : UITableViewController <RKObjectLoaderDelegate, NSFetchedResultsControllerDelegate> {
     TDSUser *user;
     TDSTrail *trail;
     

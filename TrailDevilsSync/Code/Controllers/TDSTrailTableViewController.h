@@ -14,8 +14,7 @@
 //RestKit
 #import <RestKit/RestKit.h>
 
-@interface TDSTrailTableViewController : UITableViewController <RKObjectLoaderDelegate> {
-    NSArray *trails;
+@interface TDSTrailTableViewController : UITableViewController <RKObjectLoaderDelegate, NSFetchedResultsControllerDelegate> {
     NSFetchedResultsController *fetchController;
     id target;
     SEL onTrailSelectSelector;

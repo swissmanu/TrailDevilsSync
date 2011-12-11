@@ -11,14 +11,9 @@
 //RestKit
 #import <RestKit/RestKit.h>
 
-@interface TDSUserTableViewController : UITableViewController <RKObjectLoaderDelegate> {
-    NSArray *users;
+@interface TDSUserTableViewController : UITableViewController <RKObjectLoaderDelegate, NSFetchedResultsControllerDelegate> {
     NSFetchedResultsController *fetchController;
 }
-
-@property (retain, atomic) NSArray *users;
-@property (retain, atomic) NSFetchedResultsController *fetchController;
-
 
 - (void)loadObjectsFromDataStore;
 - (void)loadData;

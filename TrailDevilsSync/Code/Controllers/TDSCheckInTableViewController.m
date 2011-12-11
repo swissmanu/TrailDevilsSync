@@ -88,14 +88,19 @@
     [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortCheckInsByDate, nil]];
     
     fetchController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[TDSTrailCheckIn managedObjectContext] sectionNameKeyPath:@"day" cacheName:nil];
+    fetchController.delegate = self;
     
     NSError *error;
-    [fetchController performFetch:&error];
+    if (![fetchController performFetch:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+
+    }
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -145,16 +150,8 @@
     return [[[fetchController sections] objectAtIndex:section] name];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
-    
-    // Configure the cell...
     TDSTrailCheckIn* curCheckIn = (TDSTrailCheckIn*)[fetchController objectAtIndexPath:indexPath];
     TDSUser *curUser = nil;
     TDSTrail *curTrail = nil;
@@ -164,7 +161,7 @@
         curUser = user;
         curTrail = [TDSTrail findFirstByAttribute:@"trailId" withValue:curCheckIn.trailId];
         
-        cell.textLabel.text = [curTrail name];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ - %d", [curTrail name], [[curCheckIn checkinId] intValue]];
         
     } else if (trail) {
         curTrail = trail;
@@ -179,9 +176,25 @@
     cell.detailTextLabel.text = [curCheckIn.checkinDate description];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+    
+    // Configure the cell...
+    
+    [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
+
 
 #pragma mark - Table view delegate
 
@@ -199,15 +212,7 @@
 #pragma mark RKObjectLoaderDelegate methods
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
-    if ([objectLoader wasSentToResourcePath:[NSString stringWithFormat:@"/users/%i/checkins", [[user userId] intValue]]]) {
-        [self loadObjectsFromDataStoreWithUser];
-    } else if ([objectLoader wasSentToResourcePath:[NSString stringWithFormat:@"/trails/%i/checkins", [[trail trailId] intValue]]]) {
-        [self loadObjectsFromDataStoreWithTrail];
-    }
-    
-    
-	[self.tableView reloadData];
-    
+
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
@@ -217,6 +222,67 @@
                                           cancelButtonTitle:@"OK" otherButtonTitles:nil];
 	[alert show];
 	NSLog(@"Hit error: %@", error);
+}
+
+#pragma mark NSFetchedResultsControllerDelegate methods
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView beginUpdates];
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    UITableView *tableView = self.tableView;
+    
+    switch(type) {
+            
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            [self configureCell:[tableView cellForRowAtIndexPath:indexPath]
+                    atIndexPath:indexPath];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView endUpdates];
 }
 
 #pragma mark - Setter

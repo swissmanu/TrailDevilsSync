@@ -54,7 +54,7 @@
         
         
         //TODO: check
-        [checkInToPOST deleteEntity];
+        //[checkInToPOST deleteEntity];
         
         [self.navigationController popViewControllerAnimated:YES];
     }
