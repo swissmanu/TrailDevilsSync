@@ -201,7 +201,7 @@
 		8DA2AF811477E21900654F55 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8DA2AF821477E21900654F55 /* TrailDevilsSync-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TrailDevilsSync-Info.plist"; sourceTree = "<group>"; };
 		8DA2AF831477E21900654F55 /* TrailDevilsSync-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TrailDevilsSync-Prefix.pch"; sourceTree = "<group>"; };
-		8DA47D2C147C42BA0011D55D /* TDSTrailPopViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDSTrailPopViewProtocol.h; path = Code/TDSTrailPopViewProtocol.h; sourceTree = "<group>"; };
+		8DA47D2C147C42BA0011D55D /* TDSTrailPopViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrailPopViewProtocol.h; sourceTree = "<group>"; };
 		8DA94EAE148571D80022EB09 /* TDSTrail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrail.h; sourceTree = "<group>"; };
 		8DA94EAF148571D80022EB09 /* TDSTrail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrail.m; sourceTree = "<group>"; };
 		8DA94EB1148572CD0022EB09 /* TDSTrailType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSTrailType.h; sourceTree = "<group>"; };
@@ -277,7 +277,7 @@
 		64EC3464143EED4C0063BC4D /* Code */ = {
 			isa = PBXGroup;
 			children = (
-				8DA47D2C147C42BA0011D55D /* TDSTrailPopViewProtocol.h */,
+				8D8A0CDA1495340C00178620 /* Protocol */,
 				8DA2AF491477E08200654F55 /* Controllers */,
 				8DA2AF551477E08200654F55 /* Models */,
 				8DA2AF601477E08200654F55 /* Views */,
@@ -323,6 +323,15 @@
 				8DA2AF341477DF8D00654F55 /* images */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		8D8A0CDA1495340C00178620 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				8DA47D2C147C42BA0011D55D /* TDSTrailPopViewProtocol.h */,
+			);
+			name = Protocol;
+			path = Code/Protocol;
 			sourceTree = "<group>";
 		};
 		8DA2AF341477DF8D00654F55 /* images */ = {
