@@ -10,6 +10,12 @@
 #import "TDSUser.h"
 #import "TDSUserDetailViewController.h"
 
+@interface TDSUserTableViewController()
+
+-(void)showLoadingView;
+
+@end
+
 @implementation TDSUserTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -71,6 +77,21 @@
     [objectManager loadObjectsAtResourcePath:@"/users" delegate:self block:^(RKObjectLoader* loader) {
         loader.objectMapping = [objectManager.mappingProvider objectMappingForClass:[TDSUser class]];
     }]; 
+    
+    [self showLoadingView];
+}
+
+-(void)showLoadingView {
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    
+    [self.navigationController.view addSubview:HUD];
+    
+    HUD.delegate = self;
+    
+    HUD.labelText = @"Loading";
+    
+    [HUD showUsingAnimation:YES];
+    
 }
 
 - (void)viewDidUnload
@@ -161,6 +182,10 @@
 
 #pragma mark RKObjectLoaderDelegate methods
 
+- (void)objectLoaderDidFinishLoading:(RKObjectLoader*)objectLoader {
+    [HUD hideUsingAnimation:YES];
+}
+
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
     
 }
@@ -234,6 +259,14 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView endUpdates];
 }
+
+#pragma mark MBProgressHUDDelegate methods
+
+- (void)hudWasHidden {
+    // Remove HUD from screen when the HUD was hidded
+    [HUD removeFromSuperview];
+}
+
 
 
 @end

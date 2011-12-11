@@ -62,21 +62,15 @@
 -(void)showSavingView {
     HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     
-    // Add HUD to screen
     [self.navigationController.view addSubview:HUD];
     
-    // Regisete for HUD callbacks so we can remove it from the window at the right time
     HUD.delegate = self;
     
     HUD.labelText = @"Saving";
     
-    // Show the HUD while the provided method executes in a new thread
     [HUD showUsingAnimation:YES];
     
 }
-
-
-
 
 - (BOOL)validateCheckinData {
     if (!trail) {
@@ -249,16 +243,16 @@
 
 #pragma mark RKObjectLoaderDelegate methods
 
-- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+- (void)objectLoaderDidFinishLoading:(RKObjectLoader*)objectLoader {
     [HUD hideUsingAnimation:YES];
-    
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {  
     [self.navigationController popViewControllerAnimated:YES];
     
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
-    [HUD hideUsingAnimation:YES];
-    
 	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" 
                                                     message:[error localizedDescription] 
                                                    delegate:nil 

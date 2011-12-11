@@ -14,11 +14,16 @@
 //RestKit
 #import <RestKit/RestKit.h>
 
-@interface TDSTrailTableViewController : UITableViewController <RKObjectLoaderDelegate, NSFetchedResultsControllerDelegate> {
+//
+#import "MBProgressHUD.h"
+
+@interface TDSTrailTableViewController : UITableViewController <RKObjectLoaderDelegate, NSFetchedResultsControllerDelegate, MBProgressHUDDelegate> {
     NSFetchedResultsController *fetchController;
     id target;
     SEL onTrailSelectSelector;
     BOOL showAccessoryType;
+    
+    MBProgressHUD* HUD;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style target:(id)target onTrailSelect:(SEL)selector showAccessoryType:(BOOL)showAccessory;

@@ -11,8 +11,13 @@
 //RestKit
 #import <RestKit/RestKit.h>
 
-@interface TDSUserTableViewController : UITableViewController <RKObjectLoaderDelegate, NSFetchedResultsControllerDelegate> {
+//
+#import "MBProgressHUD.h"
+
+@interface TDSUserTableViewController : UITableViewController <RKObjectLoaderDelegate, NSFetchedResultsControllerDelegate, MBProgressHUDDelegate> {
     NSFetchedResultsController *fetchController;
+    MBProgressHUD* HUD;
+
 }
 
 - (void)loadObjectsFromDataStore;
