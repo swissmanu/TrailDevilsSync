@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
-		6426D75D14597149007BD692 /* TDSManagedObjectCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6426D75C14597149007BD692 /* TDSManagedObjectCache.m */; };
 		64EC345D143EED4C0063BC4D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC345C143EED4C0063BC4D /* UIKit.framework */; };
 		64EC345F143EED4C0063BC4D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC345E143EED4C0063BC4D /* Foundation.framework */; };
 		64EC3461143EED4C0063BC4D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC3460143EED4C0063BC4D /* CoreGraphics.framework */; };
@@ -151,8 +150,6 @@
 
 /* Begin PBXFileReference section */
 		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.frameworks; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		6426D75B14597149007BD692 /* TDSManagedObjectCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSManagedObjectCache.h; sourceTree = "<group>"; };
-		6426D75C14597149007BD692 /* TDSManagedObjectCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSManagedObjectCache.m; sourceTree = "<group>"; };
 		64EC3458143EED4C0063BC4D /* TrailDevilsSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrailDevilsSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64EC345C143EED4C0063BC4D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		64EC345E143EED4C0063BC4D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -284,8 +281,6 @@
 				8DA2AF711477E0CA00654F55 /* Modelling */,
 				64EC346D143EED4D0063BC4D /* TDSAppDelegate.h */,
 				64EC346E143EED4D0063BC4D /* TDSAppDelegate.m */,
-				6426D75B14597149007BD692 /* TDSManagedObjectCache.h */,
-				6426D75C14597149007BD692 /* TDSManagedObjectCache.m */,
 			);
 			name = Code;
 			path = TrailDevilsSync;
@@ -588,7 +583,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				64EC346F143EED4D0063BC4D /* TDSAppDelegate.m in Sources */,
-				6426D75D14597149007BD692 /* TDSManagedObjectCache.m in Sources */,
 				8DA2AF651477E08200654F55 /* TDSCheckInTableViewController.m in Sources */,
 				8DA2AF661477E08200654F55 /* TDSTrailDetailViewController.m in Sources */,
 				8DA2AF671477E08200654F55 /* TDSTrailTableViewController.m in Sources */,
@@ -697,6 +691,7 @@
 				INFOPLIST_FILE = "TrailDevilsSync/Supporting Files/TrailDevilsSync-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -714,6 +709,7 @@
 				INFOPLIST_FILE = "TrailDevilsSync/Supporting Files/TrailDevilsSync-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
