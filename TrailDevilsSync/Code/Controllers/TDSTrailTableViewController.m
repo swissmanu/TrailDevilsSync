@@ -3,7 +3,7 @@
 //  TrailDevilsSync
 //
 //  Created by Alexandre Joly on 31.10.11.
-//  Copyright (c) 2011 Bühler AG Uzwil. All rights reserved.
+//  Copyright (c) 2011 Hochschule für Technik in Rapperswil (HSR). All rights reserved.
 //
 
 

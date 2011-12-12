@@ -3,7 +3,7 @@
 //  TrailDevilsSync
 //
 //  Created by Manuel Alabor on 07.10.11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2011 Hochschule für Technik in Rapperswil (HSR). All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
