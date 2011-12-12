@@ -8,22 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-//RestKit
-#import <RestKit/RestKit.h>
+//TDS
+#import "TDSRestKitManagedTableViewController.h"
 
 @class TDSUser;
 @class TDSTrail;
 
-@interface TDSCheckInTableViewController : UITableViewController <RKObjectLoaderDelegate, NSFetchedResultsControllerDelegate> {
+@interface TDSCheckInTableViewController : TDSRestKitManagedTableViewController {
     TDSUser *user;
     TDSTrail *trail;
     
-    NSFetchedResultsController *fetchController;
 }
 
 @property (nonatomic, retain) TDSUser *user;
 @property (nonatomic, retain) TDSTrail *trail;
-@property (nonatomic, retain) NSFetchedResultsController *fetchController;
 
 - (void)loadDataWithUser;
 - (void)loadDataWithTrail;

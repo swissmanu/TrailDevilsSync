@@ -11,12 +11,11 @@
 //RestKit
 #import <RestKit/RestKit.h>
 
-//
+//TDS
 #import "MBProgressHUD.h"
+#import "TDSRestKitManagedTableViewController.h"
 
-@interface TDSUserTableViewController : UITableViewController <RKObjectLoaderDelegate, NSFetchedResultsControllerDelegate, MBProgressHUDDelegate> {
-    NSFetchedResultsController *fetchController;
-    MBProgressHUD* HUD;
+@interface TDSUserTableViewController : TDSRestKitManagedTableViewController {
 
 }
 

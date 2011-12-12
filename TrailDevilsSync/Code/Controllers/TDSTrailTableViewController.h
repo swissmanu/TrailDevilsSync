@@ -10,25 +10,20 @@
 
 //TDS
 #import "TDSTrailPopViewProtocol.h"
+#import "TDSRestKitManagedTableViewController.h"
+#import "MBProgressHUD.h"
 
 //RestKit
 #import <RestKit/RestKit.h>
 
-//
-#import "MBProgressHUD.h"
-
-@interface TDSTrailTableViewController : UITableViewController <RKObjectLoaderDelegate, NSFetchedResultsControllerDelegate, MBProgressHUDDelegate> {
-    NSFetchedResultsController *fetchController;
+@interface TDSTrailTableViewController : TDSRestKitManagedTableViewController {
     id target;
     SEL onTrailSelectSelector;
     BOOL showAccessoryType;
-    
-    MBProgressHUD* HUD;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style target:(id)target onTrailSelect:(SEL)selector showAccessoryType:(BOOL)showAccessory;
 
 - (void)loadObjectsFromDataStore;
-- (void)loadData;
 
 @end

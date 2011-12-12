@@ -51,6 +51,7 @@
 		8DA94EB0148571D80022EB09 /* TDSTrail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA94EAF148571D80022EB09 /* TDSTrail.m */; };
 		8DA94EB3148572CD0022EB09 /* TDSTrailType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA94EB2148572CD0022EB09 /* TDSTrailType.m */; };
 		8DA94EB6148572EA0022EB09 /* TDSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA94EB5148572EA0022EB09 /* TDSUser.m */; };
+		8DBD0286149607FC009A0E4B /* TDSRestKitManagedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD0285149607FC009A0E4B /* TDSRestKitManagedTableViewController.m */; };
 		8DCAF54714912DAA00A572AB /* TDSRestKitConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCAF54614912DAA00A572AB /* TDSRestKitConfigManager.m */; };
 /* End PBXBuildFile section */
 
@@ -205,6 +206,8 @@
 		8DA94EB2148572CD0022EB09 /* TDSTrailType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSTrailType.m; sourceTree = "<group>"; };
 		8DA94EB4148572EA0022EB09 /* TDSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSUser.h; sourceTree = "<group>"; };
 		8DA94EB5148572EA0022EB09 /* TDSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSUser.m; sourceTree = "<group>"; };
+		8DBD0284149607FC009A0E4B /* TDSRestKitManagedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = TDSRestKitManagedTableViewController.h; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
+		8DBD0285149607FC009A0E4B /* TDSRestKitManagedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = TDSRestKitManagedTableViewController.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
 		8DCAF54514912DAA00A572AB /* TDSRestKitConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSRestKitConfigManager.h; sourceTree = "<group>"; };
 		8DCAF54614912DAA00A572AB /* TDSRestKitConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSRestKitConfigManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -351,6 +354,10 @@
 		8DA2AF491477E08200654F55 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8DCAF54514912DAA00A572AB /* TDSRestKitConfigManager.h */,
+				8DCAF54614912DAA00A572AB /* TDSRestKitConfigManager.m */,
+				8DBD0284149607FC009A0E4B /* TDSRestKitManagedTableViewController.h */,
+				8DBD0285149607FC009A0E4B /* TDSRestKitManagedTableViewController.m */,
 				8DA2AF4C1477E08200654F55 /* TDSTrailDetailViewController.h */,
 				8DA2AF4D1477E08200654F55 /* TDSTrailDetailViewController.m */,
 				8DA2AF4E1477E08200654F55 /* TDSTrailTableViewController.h */,
@@ -363,8 +370,6 @@
 				8DA2AF4B1477E08200654F55 /* TDSCheckInTableViewController.m */,
 				8D4AA4BA147AB9C5003AF93D /* TDSCheckInPOSTTableViewController.h */,
 				8D4AA4BB147AB9C5003AF93D /* TDSCheckInPOSTTableViewController.m */,
-				8DCAF54514912DAA00A572AB /* TDSRestKitConfigManager.h */,
-				8DCAF54614912DAA00A572AB /* TDSRestKitConfigManager.m */,
 			);
 			name = Controllers;
 			path = Code/Controllers;
@@ -599,6 +604,7 @@
 				8DA94EB6148572EA0022EB09 /* TDSUser.m in Sources */,
 				8DCAF54714912DAA00A572AB /* TDSRestKitConfigManager.m in Sources */,
 				8D8A0CAB14952B2A00178620 /* MBProgressHUD.m in Sources */,
+				8DBD0286149607FC009A0E4B /* TDSRestKitManagedTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

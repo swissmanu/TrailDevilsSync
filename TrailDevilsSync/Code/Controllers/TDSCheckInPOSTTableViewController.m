@@ -45,6 +45,8 @@
 - (void)saveCheckIn {
     
     if ([self validateCheckinData]) {
+        [self showSavingView];
+        
         TDSTrailCheckIn *checkInToPOST = [self createTrailCheckIn];
         
         RKObjectManager* objectManager = [RKObjectManager sharedManager];
@@ -54,7 +56,7 @@
             loader.objectMapping = [objectManager.mappingProvider objectMappingForClass:[TDSTrailCheckIn class]];
         }];
         
-        [self showSavingView];
+        
     }
     
 }
@@ -253,6 +255,8 @@
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
+    [HUD hideUsingAnimation:YES];
+    
 	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" 
                                                     message:[error localizedDescription] 
                                                    delegate:nil 
