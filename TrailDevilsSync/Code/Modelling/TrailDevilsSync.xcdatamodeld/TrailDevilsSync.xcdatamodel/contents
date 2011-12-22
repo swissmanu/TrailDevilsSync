@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Person" syncable="YES">
+        <attribute name="lastname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="personId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="friends" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="friends" inverseEntity="Person" syncable="YES"/>
+    </entity>
     <entity name="TDSTrail" representedClassName="TDSTrail" syncable="YES">
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="countryId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -58,5 +64,6 @@
         <element name="TDSTrailCheckIn" positionX="160" positionY="192" width="128" height="195"/>
         <element name="TDSTrailType" positionX="160" positionY="192" width="128" height="105"/>
         <element name="TDSUser" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Person" positionX="-162" positionY="279" width="128" height="105"/>
     </elements>
 </model>
